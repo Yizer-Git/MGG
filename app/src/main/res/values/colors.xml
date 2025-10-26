@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 基础色 -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- 主题色 - 国潮红（Web版配色）-->
+    <color name="primary">#A4393C</color>
+    <color name="primary_dark">#8A2F32</color>
+    <color name="primary_light">#BE5659</color>
+    
+    <!-- 辅助色 - 雅致金（Web版配色）-->
+    <color name="secondary">#F7F2EC</color>
+    <color name="secondary_dark">#E5DFD3</color>
+    <color name="secondary_light">#FFF9F3</color>
+    
+    <!-- 点缀色 - 雅致金色 -->
+    <color name="accent">#C09865</color>
+    <color name="accent_light">#D4B085</color>
+    <color name="accent_dark">#A67F4E</color>
+    
+    <!-- 文本色 -->
+    <color name="text_primary">#333333</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_tertiary">#999999</color>
+    <color name="text_hint">#CCCCCC</color>
+    
+    <!-- 背景色（Web版配色）-->
+    <color name="background">#FDFDFD</color>
+    <color name="background_light">#FFFFFF</color>
+    <color name="background_cream">#F7F2EC</color>
+    <color name="background_dark">#F0F0F0</color>
+    
+    <!-- 分割线 -->
+    <color name="divider">#EEEEEE</color>
+    
+    <!-- 状态色 -->
+    <color name="success">#52C41A</color>
+    <color name="warning">#FAAD14</color>
+    <color name="error">#F5222D</color>
+    <color name="info">#1890FF</color>
+    
+    <!-- 透明度 -->
+    <color name="transparent">#00000000</color>
+    <color name="mask">#80000000</color>
+</resources>

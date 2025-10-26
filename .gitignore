@@ -1,0 +1,66 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Gradle Wrapper
+gradle-wrapper.jar
+
+# Local configuration
+local.properties
+.gradle/
+.idea/
+*.iml
+
+# IntelliJ / Android Studio
+/.idea/workspace.xml
+/.idea/tasks.xml
+/.idea/gradle.xml
+/.idea/dictionaries
+/.idea/libraries
+/.idea/caches
+/.idea/modules.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+shelf/
+
+# Android specific
+captures/
+outputs/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.ap_ 
+*.aab
+*.aar
+
+# Keystore and secrets
+*.jks
+*.keystore
+keystore.properties
+*.pem
+*.p12
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/reports/
+/build/reports/
+
+# IDE run configs (if you want to keep them out)
+.idea/*runConfigurations*
+
+# Temporary files
+*.tmp
+*~
+# JetBrains folders
+out/
+
+# Node / other (if present)
+node_modules/
+
+# Misc
+*.class
