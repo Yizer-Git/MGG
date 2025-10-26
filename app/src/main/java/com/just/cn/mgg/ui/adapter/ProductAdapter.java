@@ -3,6 +3,7 @@ package com.just.cn.mgg.ui.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,8 +69,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvProductPrice.setText(PriceUtils.format(product.getPrice()));
         
         // 原价
-        if (product.getOriginalPrice() != null && 
-            product.getOriginalPrice().compareTo(product.getPrice()) > 0) {
+        if (product.hasDiscount()) {
             holder.tvOriginalPrice.setVisibility(View.VISIBLE);
             holder.tvOriginalPrice.setText(PriceUtils.format(product.getOriginalPrice()));
             holder.tvOriginalPrice.setPaintFlags(
@@ -83,13 +83,15 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvSales.setText("已售" + product.getSales());
         
         // 产品图片
-        if (product.getImages() != null && !product.getImages().isEmpty()) {
-            String imageUrl = product.getImages().split(",")[0];
+        String imageUrl = product.getMainImage();
+        if (!TextUtils.isEmpty(imageUrl)) {
             Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.color.secondary)
                 .error(R.color.secondary)
                 .into(holder.ivProductImage);
+        } else {
+            holder.ivProductImage.setImageResource(R.color.secondary);
         }
         
         // 点击事件

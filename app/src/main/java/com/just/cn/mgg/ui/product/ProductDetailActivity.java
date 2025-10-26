@@ -2,6 +2,7 @@ package com.just.cn.mgg.ui.product;
 
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -124,8 +125,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         tvPrice.setText(PriceUtils.format(product.getPrice()));
         
         // 原价
-        if (product.getOriginalPrice() != null && 
-            product.getOriginalPrice().compareTo(product.getPrice()) > 0) {
+        if (product.hasDiscount()) {
             tvOriginalPrice.setVisibility(View.VISIBLE);
             tvOriginalPrice.setText(PriceUtils.format(product.getOriginalPrice()));
             tvOriginalPrice.setPaintFlags(
@@ -145,12 +145,14 @@ public class ProductDetailActivity extends AppCompatActivity {
         tvDescription.setText(product.getDescription());
         
         // 产品图片
-        if (product.getImages() != null && !product.getImages().isEmpty()) {
-            String imageUrl = product.getImages().split(",")[0];
+        String imageUrl = product.getMainImage();
+        if (!TextUtils.isEmpty(imageUrl)) {
             Glide.with(this)
                 .load(imageUrl)
                 .placeholder(R.color.secondary)
                 .into(ivProductImage);
+        } else {
+            ivProductImage.setImageResource(R.color.secondary);
         }
     }
     
@@ -209,4 +211,3 @@ public class ProductDetailActivity extends AppCompatActivity {
         ToastUtils.show(this, "立即购买功能待实现");
     }
 }
-

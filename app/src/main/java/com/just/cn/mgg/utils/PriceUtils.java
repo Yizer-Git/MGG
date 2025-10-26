@@ -21,5 +21,12 @@ public class PriceUtils {
     public static String formatPriceWithoutSymbol(double price) {
         return PRICE_FORMAT.format(price);
     }
+
+    /**
+     * 默认格式化带货币符号，兼容旧调用
+     */
+    public static String format(double price) {
+        return formatPrice(price);
+    }
 }
 

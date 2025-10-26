@@ -1,6 +1,7 @@
 package com.just.cn.mgg.ui.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,12 +83,14 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.tvQuantity.setText(String.valueOf(item.getQuantity()));
         
         // 产品图片
-        if (item.getProduct().getImages() != null && !item.getProduct().getImages().isEmpty()) {
-            String imageUrl = item.getProduct().getImages().split(",")[0];
+        String imageUrl = item.getProduct().getMainImage();
+        if (!TextUtils.isEmpty(imageUrl)) {
             Glide.with(context)
                 .load(imageUrl)
                 .placeholder(R.color.secondary)
                 .into(holder.ivProductImage);
+        } else {
+            holder.ivProductImage.setImageResource(R.color.secondary);
         }
         
         // 减少数量
@@ -107,8 +110,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.btnIncrease.setOnClickListener(v -> {
             int currentQuantity = item.getQuantity();
             // 检查库存
-            if (item.getProduct().getStock() != null && 
-                currentQuantity < item.getProduct().getStock()) {
+            if (currentQuantity < item.getProduct().getStock()) {
                 int newQuantity = currentQuantity + 1;
                 item.setQuantity(newQuantity);
                 holder.tvQuantity.setText(String.valueOf(newQuantity));
