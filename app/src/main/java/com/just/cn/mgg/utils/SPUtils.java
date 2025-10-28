@@ -129,5 +129,19 @@ public class SPUtils {
         String token = getToken(context);
         return token.isEmpty() ? "" : "Bearer " + token;
     }
+
+    /**
+     * 存储用户昵称
+     */
+    public static void saveUsername(Context context, String username) {
+        put(context, Constants.KEY_NICKNAME, username);
+    }
+
+    /**
+     * 获取用户昵称
+     */
+    public static String getUsername(Context context) {
+        return getString(context, Constants.KEY_NICKNAME, "");
+    }
 }
 

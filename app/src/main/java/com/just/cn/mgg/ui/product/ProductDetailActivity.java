@@ -1,5 +1,6 @@
 package com.just.cn.mgg.ui.product;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,20 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.just.cn.mgg.R;
+import com.just.cn.mgg.data.local.LocalRepository;
+import com.just.cn.mgg.data.model.CartItem;
 import com.just.cn.mgg.data.model.Product;
-import com.just.cn.mgg.data.remote.ApiService;
-import com.just.cn.mgg.data.remote.RetrofitClient;
-import com.just.cn.mgg.data.remote.response.ApiResponse;
+import com.just.cn.mgg.utils.Constants;
 import com.just.cn.mgg.utils.PriceUtils;
 import com.just.cn.mgg.utils.SPUtils;
 import com.just.cn.mgg.utils.ToastUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.ArrayList;
 
 /**
  * 产品详情页
@@ -44,9 +40,10 @@ public class ProductDetailActivity extends AppCompatActivity {
     private Button btnAddToCart;
     private Button btnBuyNow;
     
-    private ApiService apiService;
+    private LocalRepository repository;
     private Product product;
     private int productId;
+    private int userId;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +57,9 @@ public class ProductDetailActivity extends AppCompatActivity {
             return;
         }
         
-        apiService = RetrofitClient.getInstance().getApiService();
-        
+        repository = new LocalRepository(this);
+        userId = SPUtils.getInt(this, com.just.cn.mgg.utils.Constants.KEY_USER_ID);
+
         initViews();
         loadProductDetail();
     }
@@ -88,28 +86,13 @@ public class ProductDetailActivity extends AppCompatActivity {
      * 加载产品详情
      */
     private void loadProductDetail() {
-        apiService.getProductDetail(productId).enqueue(new Callback<ApiResponse<Product>>() {
-            @Override
-            public void onResponse(Call<ApiResponse<Product>> call, 
-                                 Response<ApiResponse<Product>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    ApiResponse<Product> apiResponse = response.body();
-                    if (apiResponse.getCode() == 200 && apiResponse.getData() != null) {
-                        product = apiResponse.getData();
-                        displayProduct();
-                    } else {
-                        ToastUtils.show(ProductDetailActivity.this, apiResponse.getMessage());
-                    }
-                } else {
-                    ToastUtils.show(ProductDetailActivity.this, "加载失败");
-                }
-            }
-            
-            @Override
-            public void onFailure(Call<ApiResponse<Product>> call, Throwable t) {
-                ToastUtils.show(ProductDetailActivity.this, "网络错误：" + t.getMessage());
-            }
-        });
+        product = repository.getProductDetail(productId);
+        if (product == null) {
+            ToastUtils.show(this, "未找到商品信息");
+            finish();
+        } else {
+            displayProduct();
+        }
     }
     
     /**
@@ -149,10 +132,10 @@ public class ProductDetailActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(imageUrl)) {
             Glide.with(this)
                 .load(imageUrl)
-                .placeholder(R.color.secondary)
+                .placeholder(R.color.color_surface_elevated)
                 .into(ivProductImage);
         } else {
-            ivProductImage.setImageResource(R.color.secondary);
+            ivProductImage.setImageResource(R.color.color_surface_elevated);
         }
     }
     
@@ -165,37 +148,25 @@ public class ProductDetailActivity extends AppCompatActivity {
             return;
         }
         
-        String token = SPUtils.getToken(this);
-        if (token == null || token.isEmpty()) {
+        if (!SPUtils.isLogin(this)) {
             ToastUtils.show(this, "请先登录");
             return;
         }
-        
-        Map<String, Object> params = new HashMap<>();
-        params.put("product_id", product.getProductId());
-        params.put("quantity", 1);
-        
-        apiService.addToCart("Bearer " + token, params).enqueue(new Callback<ApiResponse<String>>() {
-            @Override
-            public void onResponse(Call<ApiResponse<String>> call, 
-                                 Response<ApiResponse<String>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    ApiResponse<String> apiResponse = response.body();
-                    if (apiResponse.getCode() == 200) {
-                        ToastUtils.show(ProductDetailActivity.this, "已加入购物车");
-                    } else {
-                        ToastUtils.show(ProductDetailActivity.this, apiResponse.getMessage());
-                    }
-                } else {
-                    ToastUtils.show(ProductDetailActivity.this, "添加失败");
-                }
-            }
-            
-            @Override
-            public void onFailure(Call<ApiResponse<String>> call, Throwable t) {
-                ToastUtils.show(ProductDetailActivity.this, "网络错误：" + t.getMessage());
-            }
-        });
+
+        if (userId == 0) {
+            userId = SPUtils.getInt(this, Constants.KEY_USER_ID);
+        }
+        if (userId == 0) {
+            ToastUtils.show(this, "请先登录");
+            return;
+        }
+
+        try {
+            repository.addToCart(userId, product.getProductId(), 1);
+            ToastUtils.show(this, "已加入购物车");
+        } catch (Exception e) {
+            ToastUtils.show(this, "添加失败：" + e.getMessage());
+        }
     }
     
     /**
@@ -206,8 +177,25 @@ public class ProductDetailActivity extends AppCompatActivity {
             ToastUtils.show(this, "产品信息加载中");
             return;
         }
-        
-        // TODO: 跳转到订单确认页
-        ToastUtils.show(this, "立即购买功能待实现");
+        if (!SPUtils.isLogin(this)) {
+            ToastUtils.show(this, "请先登录");
+            return;
+        }
+        if (userId == 0) {
+            userId = SPUtils.getInt(this, Constants.KEY_USER_ID);
+        }
+        CartItem item = new CartItem();
+        item.setUserId(userId);
+        item.setProductId(product.getProductId());
+        item.setProduct(product);
+        item.setQuantity(1);
+        item.setSelected(true);
+
+        ArrayList<CartItem> list = new ArrayList<>();
+        list.add(item);
+
+        Intent intent = new Intent(this, com.just.cn.mgg.ui.order.OrderConfirmActivity.class);
+        intent.putExtra(com.just.cn.mgg.ui.order.OrderConfirmActivity.EXTRA_SELECTED_ITEMS, list);
+        startActivity(intent);
     }
 }

@@ -9,19 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.just.cn.mgg.R;
+import com.just.cn.mgg.data.local.LocalRepository;
 import com.just.cn.mgg.data.model.User;
-import com.just.cn.mgg.data.remote.ApiService;
-import com.just.cn.mgg.data.remote.RetrofitClient;
-import com.just.cn.mgg.data.remote.response.ApiResponse;
-import com.just.cn.mgg.utils.NetworkUtils;
 import com.just.cn.mgg.utils.ToastUtils;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * 注册界面
@@ -31,8 +24,9 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText etPhone, etCode, etPassword, etConfirmPassword;
     private MaterialButton btnGetCode, btnRegister;
     
-    private ApiService apiService;
+    private LocalRepository repository;
     private CountDownTimer countDownTimer;
+    private String lastVerifyCode;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         initViews();
         initListeners();
         
-        apiService = RetrofitClient.getInstance().getApiService();
+        repository = new LocalRepository(this);
     }
     
     private void initViews() {
@@ -81,38 +75,10 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
         
-        if (!NetworkUtils.isNetworkAvailable(this)) {
-            ToastUtils.showShort(this, getString(R.string.network_error));
-            return;
-        }
-        
         btnGetCode.setEnabled(false);
-        
-        apiService.sendVerifyCode(phone).enqueue(new Callback<ApiResponse<String>>() {
-            @Override
-            public void onResponse(Call<ApiResponse<String>> call, 
-                                 Response<ApiResponse<String>> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    ApiResponse<String> apiResponse = response.body();
-                    if (apiResponse.isSuccess()) {
-                        ToastUtils.showShort(RegisterActivity.this, "验证码已发送");
-                        startCountDown();
-                    } else {
-                        btnGetCode.setEnabled(true);
-                        ToastUtils.showShort(RegisterActivity.this, apiResponse.getMessage());
-                    }
-                } else {
-                    btnGetCode.setEnabled(true);
-                    ToastUtils.showShort(RegisterActivity.this, getString(R.string.server_error));
-                }
-            }
-            
-            @Override
-            public void onFailure(Call<ApiResponse<String>> call, Throwable t) {
-                btnGetCode.setEnabled(true);
-                ToastUtils.showShort(RegisterActivity.this, getString(R.string.network_error));
-            }
-        });
+        lastVerifyCode = generateVerifyCode();
+        ToastUtils.showShort(this, "验证码已发送：" + lastVerifyCode + "（本地调试）");
+        startCountDown();
     }
     
     /**
@@ -146,46 +112,22 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
         
-        if (!NetworkUtils.isNetworkAvailable(this)) {
-            ToastUtils.showShort(this, getString(R.string.network_error));
-            return;
-        }
-        
         btnRegister.setEnabled(false);
         btnRegister.setText("注册中...");
-        
-        Map<String, String> params = new HashMap<>();
-        params.put("phone", phone);
-        params.put("code", code);
-        params.put("password", password);
-        
-        apiService.register(params).enqueue(new Callback<ApiResponse<User>>() {
-            @Override
-            public void onResponse(Call<ApiResponse<User>> call, 
-                                 Response<ApiResponse<User>> response) {
-                btnRegister.setEnabled(true);
-                btnRegister.setText(getString(R.string.register));
-                
-                if (response.isSuccessful() && response.body() != null) {
-                    ApiResponse<User> apiResponse = response.body();
-                    if (apiResponse.isSuccess()) {
-                        ToastUtils.showShort(RegisterActivity.this, "注册成功，请登录");
-                        finish();
-                    } else {
-                        ToastUtils.showShort(RegisterActivity.this, apiResponse.getMessage());
-                    }
-                } else {
-                    ToastUtils.showShort(RegisterActivity.this, getString(R.string.server_error));
-                }
-            }
-            
-            @Override
-            public void onFailure(Call<ApiResponse<User>> call, Throwable t) {
-                btnRegister.setEnabled(true);
-                btnRegister.setText(getString(R.string.register));
-                ToastUtils.showShort(RegisterActivity.this, getString(R.string.network_error));
-            }
-        });
+
+        try {
+            User user = repository.registerUser(phone, password, null);
+            ToastUtils.showShort(this, "注册成功，请登录");
+            finish();
+        } catch (IllegalArgumentException ex) {
+            ToastUtils.showShort(this, ex.getMessage());
+            btnRegister.setEnabled(true);
+            btnRegister.setText(getString(R.string.register));
+        } catch (Exception ex) {
+            ToastUtils.showShort(this, "注册失败：" + ex.getMessage());
+            btnRegister.setEnabled(true);
+            btnRegister.setText(getString(R.string.register));
+        }
     }
     
     /**
@@ -226,8 +168,18 @@ public class RegisterActivity extends AppCompatActivity {
             ToastUtils.showShort(this, "两次密码输入不一致");
             return false;
         }
+
+        if (lastVerifyCode == null || !lastVerifyCode.equals(code)) {
+            ToastUtils.showShort(this, "验证码不正确，请重新获取");
+            return false;
+        }
         
         return true;
+    }
+
+    private String generateVerifyCode() {
+        int code = (int) ((Math.random() * 9 + 1) * 100000);
+        return String.valueOf(code);
     }
     
     @Override

@@ -1,16 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">米嘎嘎</string>
-    
+
     <!-- 品牌 -->
     <string name="brand_name">米嘎嘎</string>
-    <string name="brand_slogan">嘉州酥韵·国潮新滋味</string>
-    
+    <string name="brand_slogan">传承匠心 · 品味非遗好滋味</string>
+
     <!-- 底部导航 -->
     <string name="nav_home">首页</string>
-    <string name="nav_category">分类</string>
-    <string name="nav_cart">购物车</string>
+    <string name="nav_explore">探索</string>
+    <string name="nav_topic">专题</string>
     <string name="nav_profile">我的</string>
-    
+
     <!-- 登录注册 -->
     <string name="login">登录</string>
     <string name="register">注册</string>
@@ -25,28 +26,39 @@
     <string name="register_now">立即注册</string>
     <string name="has_account">已有账号？</string>
     <string name="login_now">立即登录</string>
-    
+
     <!-- 首页 -->
-    <string name="search_hint">搜索米花糖美食</string>
+    <string name="greeting_evening">晚上好！</string>
+    <string name="greeting_subtitle">来看看今天有哪些非遗好物</string>
+    <string name="content_desc_cart">前往购物车</string>
+    <string name="content_desc_qr_scan">扫码寻找好物</string>
+    <string name="search_hint">搜索米嘎嘎特色美食</string>
+    <string name="content_desc_featured_banner">精选专题横幅</string>
+    <string name="home_recommended_exhibitions">推荐展览</string>
+    <string name="action_more">更多</string>
     <string name="hot_products">热销推荐</string>
-    <string name="classic_series">经典复刻</string>
-    <string name="trendy_series">潮流创味</string>
+    <string name="classic_series">经典系列</string>
+    <string name="trendy_series">潮流口味</string>
     <string name="heritage_culture">非遗文化</string>
-    
-    <!-- 产品 -->
+
+    <!-- 商品 -->
     <string name="add_to_cart">加入购物车</string>
     <string name="buy_now">立即购买</string>
     <string name="product_detail">产品详情</string>
     <string name="sales_count">已售%d件</string>
     <string name="product_image">产品图片</string>
     <string name="stock_count">库存%d件</string>
-    
+
     <!-- 购物车 -->
-    <string name="cart_empty">购物车空空如也</string>
+    <string name="cart_title">购物车</string>
+    <string name="cart_empty">购物车还是空的哦</string>
     <string name="go_shopping">去逛逛</string>
+    <string name="cart_select_all">全选</string>
+    <string name="cart_total_label">总计：</string>
     <string name="total">合计</string>
-    <string name="settle">结算</string>
-    
+    <string name="settle">去结算</string>
+    <string name="cart_delete_item">删除商品</string>
+
     <!-- 订单 -->
     <string name="order_list">订单列表</string>
     <string name="all_orders">全部</string>
@@ -57,25 +69,42 @@
     <string name="cancel_order">取消订单</string>
     <string name="confirm_receipt">确认收货</string>
     <string name="view_detail">查看详情</string>
-    
+    <string name="order_detail">订单详情</string>
+    <string name="order_items">订单商品</string>
+    <string name="order_basic_info">基本信息</string>
+    <string name="order_amount_detail">金额明细</string>
+    <string name="order_items_total">商品金额</string>
+    <string name="order_shipping_fee">运费</string>
+    <string name="order_total_payable">应付总额</string>
+    <string name="order_action_secondary">取消订单</string>
+    <string name="order_action_primary">去支付</string>
+
     <!-- 个人中心 -->
+    <string name="profile_avatar">用户头像</string>
+    <string name="profile_guest">尊贵的用户</string>
+    <string name="profile_subtitle">欢迎走进民俗好物的世界</string>
     <string name="my_orders">我的订单</string>
     <string name="address_management">地址管理</string>
     <string name="my_favorites">我的收藏</string>
     <string name="customer_service">客服咨询</string>
     <string name="settings">设置</string>
     <string name="logout">退出登录</string>
-    
+    <string name="order_status_pending">待付款</string>
+    <string name="order_status_shipped">待发货</string>
+    <string name="order_status_done">已完成</string>
+    <string name="profile_story_title">米花糖作坊的一日三餐</string>
+    <string name="profile_story_description">每天凌晨点火熬糖，午后翻炒米香，傍晚装盒寄出，把最及时的新鲜甜味送到你手里。</string>
+
     <!-- 地址 -->
-    <string name="add_address">添加地址</string>
+    <string name="add_address">新增地址</string>
     <string name="edit_address">编辑地址</string>
-    <string name="receiver_name">收货人</string>
+    <string name="receiver_name">收件人</string>
     <string name="receiver_phone">联系电话</string>
     <string name="select_region">选择地区</string>
     <string name="detail_address">详细地址</string>
     <string name="set_default">设为默认</string>
     <string name="default_address">默认</string>
-    
+
     <!-- 通用 -->
     <string name="confirm">确定</string>
     <string name="cancel">取消</string>
@@ -83,8 +112,45 @@
     <string name="delete">删除</string>
     <string name="edit">编辑</string>
     <string name="submit">提交</string>
-    <string name="loading">加载中…</string>
-    <string name="no_more_data">没有更多数据了</string>
-    <string name="network_error">网络异常，请检查网络连接</string>
-    <string name="server_error">服务器异常，请稍后重试</string>
+    <string name="loading">正在加载...</string>
+    <string name="no_more_data">没有更多内容了</string>
+    <string name="network_error">网络异常，请检查连接</string>
+    <string name="server_error">服务器开小差，请稍后再试</string>
+    <!-- 文化专区 -->
+    <string name="culture_section_title">非遗文化</string>
+    <string name="culture_section_subtitle">品牌故事 · 非遗技艺 · 国潮资讯</string>
+    <string name="article_filter_all">全部</string>
+    <string name="article_filter_brand">品牌故事</string>
+    <string name="article_filter_heritage">非遗技艺</string>
+    <string name="article_filter_trend">国潮资讯</string>
+    <string name="article_filter_product">产品故事</string>
+    <string name="article_empty">暂时还没有内容，敬请期待～</string>
+    <string name="article_meta_format">%1$s | %2$s | 浏览 %3$d</string>
+    <string name="article_detail_share">分享</string>
+    <string name="article_detail_share_text">我正在米嘎嘎阅读《%1$s》，一起来感受非遗文化的魅力吧！</string>
+    <string name="article_list_loading">正在加载文化故事...</string>
+    <string name="article_load_failed">内容加载失败，请稍后重试</string>
+    <string name="article_detail">文章详情</string>
+    <string name="home_culture_title">非遗传习</string>
+    <string name="home_culture_description">米嘎嘎精选品牌故事、匠心技艺与国潮资讯，带你沉浸式认识百年好味。</string>
+    <string name="home_culture_action">走进文化专区</string>
+    <string name="content_desc_topic_banner">专题页滚动横幅</string>
+    <string name="content_desc_back">返回</string>
+    <string name="content_desc_share">分享专题</string>
+    <string name="topic_highlight_title">十月精选 · 手作展播</string>
+    <string name="topic_highlight_description">汇集民间文学、传统戏剧与匠人活动，滑动选择喜爱的栏目，探索文化新灵感。</string>
+    <string name="content_desc_filter">探索筛选</string>
+    <string name="explore_title">探索民俗</string>
+    <string name="explore_subtitle">发掘故事、匠人、节庆与更多灵感</string>
+    <string name="explore_search_hint">搜索关键词、标签或手作人</string>
+    <string name="explore_tab_recommend">推荐</string>
+    <string name="explore_tab_handmade">手作</string>
+    <string name="explore_tab_festival">节庆</string>
+    <string name="explore_tab_inheritor">传承人</string>
+    <string name="explore_empty">还没有内容，欢迎分享你的民俗灵感</string>
+
+    <!-- 社区评论 -->
+    <string name="review_like_format">点赞 %1$d</string>
+    <string name="review_comment_format">评论 %1$d</string>
+    <string name="review_user_default">米嘎嘎用户</string>
 </resources>

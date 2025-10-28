@@ -4,12 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="@color/secondary_light">
+    android:background="@color/color_surface_elevated">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivRegisterHeader"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:contentDescription="@string/register"
+            android:scaleType="centerCrop"
+            android:src="@drawable/register_header_photo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedTop" />
 
         <!-- 标题 -->
         <TextView
@@ -19,9 +31,9 @@
             android:text="@string/register"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/primary"
-            android:layout_marginTop="60dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/color_accent"
+            android:layout_marginTop="-32dp"
+            app:layout_constraintTop_toBottomOf="@id/ivRegisterHeader"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <!-- 手机号 -->
@@ -157,7 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/login_now"
-                android:textColor="@color/primary"
+                android:textColor="@color/color_accent"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:padding="4dp"/>

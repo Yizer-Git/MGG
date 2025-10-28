@@ -27,7 +27,10 @@ public class User {
     private String nickname;
     private String avatar;
     private String email;
+    @Column(name = "gender", columnDefinition = "TINYINT")
     private Integer gender;
+
+    @Column(name = "status", columnDefinition = "TINYINT")
     private Integer status;
     
     @CreatedDate

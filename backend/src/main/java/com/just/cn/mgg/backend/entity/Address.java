@@ -38,7 +38,7 @@ public class Address {
     @Column(name = "detail_address", nullable = false)
     private String detailAddress;
     
-    @Column(name = "is_default", nullable = false)
+    @Column(name = "is_default", nullable = false, columnDefinition = "TINYINT(1)")
     private Boolean isDefault = false;
     
     @CreatedDate

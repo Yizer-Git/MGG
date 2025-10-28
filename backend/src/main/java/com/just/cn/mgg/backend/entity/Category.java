@@ -26,7 +26,7 @@ public class Category {
     @Column(name = "sort_order")
     private Integer sortOrder;
     
-    @Column(name = "is_active")
+    @Column(name = "is_active", columnDefinition = "TINYINT(1)")
     private Boolean isActive;
     
     @CreatedDate

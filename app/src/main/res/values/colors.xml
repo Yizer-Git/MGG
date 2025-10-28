@@ -3,44 +3,39 @@
     <!-- 基础色 -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <!-- 主题色 - 国潮红（Web版配色）-->
-    <color name="primary">#A4393C</color>
-    <color name="primary_dark">#8A2F32</color>
-    <color name="primary_light">#BE5659</color>
-    
-    <!-- 辅助色 - 雅致金（Web版配色）-->
-    <color name="secondary">#F7F2EC</color>
-    <color name="secondary_dark">#E5DFD3</color>
-    <color name="secondary_light">#FFF9F3</color>
-    
-    <!-- 点缀色 - 雅致金色 -->
-    <color name="accent">#C09865</color>
-    <color name="accent_light">#D4B085</color>
-    <color name="accent_dark">#A67F4E</color>
-    
+
+    <!-- 品牌基调 -->
+    <color name="color_base">#D9C7AA</color>
+    <color name="color_base_soft">#E6D8C0</color>
+    <color name="color_frame">#BAA789</color>
+    <color name="color_frame_soft">#C8B89A</color>
+
+    <!-- 强调色 -->
+    <color name="color_accent">#5B2C18</color>
+    <color name="color_accent_dark">#421F11</color>
+    <color name="color_accent_transparent_10">#1A5B2C18</color>
+    <color name="color_accent_transparent_20">#335B2C18</color>
+
+    <!-- 表面与卡片 -->
+    <color name="color_surface_main">#FFFCF9</color>
+    <color name="color_surface_elevated">#F7EBDD</color>
+
     <!-- 文本色 -->
-    <color name="text_primary">#333333</color>
-    <color name="text_secondary">#666666</color>
-    <color name="text_tertiary">#999999</color>
-    <color name="text_hint">#CCCCCC</color>
-    
-    <!-- 背景色（Web版配色）-->
-    <color name="background">#FDFDFD</color>
-    <color name="background_light">#FFFFFF</color>
-    <color name="background_cream">#F7F2EC</color>
-    <color name="background_dark">#F0F0F0</color>
-    
-    <!-- 分割线 -->
-    <color name="divider">#EEEEEE</color>
-    
-    <!-- 状态色 -->
-    <color name="success">#52C41A</color>
-    <color name="warning">#FAAD14</color>
-    <color name="error">#F5222D</color>
-    <color name="info">#1890FF</color>
-    
+    <color name="text_primary">#5B2C18</color>
+    <color name="text_secondary">#4B2415</color>
+    <color name="text_tertiary">#7B5140</color>
+    <color name="text_hint">#A17D69</color>
+
+    <!-- 辅助用色 -->
+    <color name="divider">#805B2C18</color>
+    <color name="overlay_mask">#995B2C18</color>
+
+    <!-- 状态色（保持原有语义，但柔化饱和度） -->
+    <color name="success">#528B3B</color>
+    <color name="warning">#B8801A</color>
+    <color name="error">#A7352B</color>
+    <color name="info">#3E6A89</color>
+
     <!-- 透明度 -->
     <color name="transparent">#00000000</color>
-    <color name="mask">#80000000</color>
 </resources>

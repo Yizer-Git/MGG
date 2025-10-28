@@ -27,7 +27,7 @@ public class CartItem {
     @Column(nullable = false)
     private Integer quantity;
     
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "TINYINT(1)")
     private Boolean selected = true;
     
     @CreatedDate

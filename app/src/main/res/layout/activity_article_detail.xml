@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_base"
+    tools:context=".ui.article.ArticleDetailActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarArticleDetail"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/color_base"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:titleTextColor="@color/text_primary" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivArticleHeader"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:contentDescription="@string/article_detail"
+        android:scaleType="centerCrop"
+        android:src="@drawable/article_header_photo"
+        app:shapeAppearanceOverlay="@style/RoundedTop" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <WebView
+            android:id="@+id/webViewArticle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressArticleDetail"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:indicatorSize="48dp" />
+    </FrameLayout>
+
+</LinearLayout>

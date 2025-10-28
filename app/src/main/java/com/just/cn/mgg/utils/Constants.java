@@ -10,11 +10,11 @@ public class Constants {
     public static final int CATEGORY_TRENDY = 2;   // 潮流创味
     
     // ========== 订单状态 ==========
-    public static final int ORDER_STATUS_PENDING = 1;    // 待付款
-    public static final int ORDER_STATUS_PAID = 2;       // 待发货
-    public static final int ORDER_STATUS_SHIPPED = 3;    // 待收货
-    public static final int ORDER_STATUS_COMPLETED = 4;  // 已完成
-    public static final int ORDER_STATUS_CANCELLED = 5;  // 已取消
+    public static final int ORDER_STATUS_PENDING = 0;    // 待付款
+    public static final int ORDER_STATUS_PAID = 1;       // 待发货
+    public static final int ORDER_STATUS_SHIPPED = 2;    // 待收货
+    public static final int ORDER_STATUS_COMPLETED = 3;  // 已完成
+    public static final int ORDER_STATUS_CANCELLED = 4;  // 已取消
     
     // ========== SharedPreferences Keys ==========
     public static final String KEY_TOKEN = "token";

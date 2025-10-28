@@ -36,7 +36,7 @@ public class Order {
     @Column(name = "receiver_address", length = 500)
     private String receiverAddress;
     
-    @Column(nullable = false)
+    @Column(name = "status", nullable = false, columnDefinition = "TINYINT")
     private Integer status = 1; // 1-待付款，2-待发货，3-待收货，4-已完成，5-已取消
     
     private String remark;

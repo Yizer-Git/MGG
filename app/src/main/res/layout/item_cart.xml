@@ -1,105 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/color_surface_main"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/color_frame"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:padding="16dp">
 
-        <!-- 选择框 -->
         <CheckBox
             android:id="@+id/cbSelect"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:buttonTint="@color/color_accent"
+            android:textColor="@color/text_primary" />
 
-        <!-- 产品图片 -->
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivProductImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:background="@drawable/bg_surface_card"
+            android:contentDescription="@string/product_image"
             android:scaleType="centerCrop"
-            android:background="@color/secondary"
-            android:contentDescription="@string/product_image" />
+            app:shapeAppearanceOverlay="@style/RoundedAll"
+            tools:src="@drawable/ancient_book" />
 
-        <!-- 产品信息 -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:layout_marginStart="12dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvProductName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="产品名称"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
+                android:ellipsize="end"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="桃木摆件 · 国潮系列桃木摆件" />
 
             <TextView
                 android:id="@+id/tvProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="¥19.90"
-                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/color_accent"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/primary"
-                android:layout_marginTop="8dp" />
+                tools:text="¥108" />
 
-            <!-- 数量选择器 -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp"
-                android:gravity="center_vertical">
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDecrease"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    style="@style/Button.Primary.Outlined"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
                     android:text="-"
-                    android:textSize="18sp"
-                    android:padding="0dp"
-                    android:background="@color/secondary" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvQuantity"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:textSize="14sp"
-                    android:gravity="center"
+                    android:layout_width="48dp"
+                    android:layout_height="36dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp" />
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_quantity_counter"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnIncrease"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    style="@style/Button.Primary.Outlined"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
                     android:text="+"
-                    android:textSize="18sp"
-                    android:padding="0dp"
-                    android:background="@color/secondary" />
-
+                    android:textSize="18sp" />
             </LinearLayout>
-
         </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_surface_card"
+            android:contentDescription="@string/cart_delete_item"
+            android:padding="10dp"
+            android:src="@drawable/ic_delete"
+            android:tint="@color/text_secondary" />
 
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>
-

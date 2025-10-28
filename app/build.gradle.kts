@@ -16,7 +16,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         
         // API配置
-        buildConfigField("String", "BASE_URL", "\"http://192.168.1.100:8080/\"")
+        buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080/\"")
     }
 
     buildTypes {
@@ -30,7 +30,8 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://api.migaga.com/\"")
         }
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://192.168.1.100:8080/\"")
+            // Emulator uses 10.0.2.2 to reach host machine services
+            buildConfigField("String", "BASE_URL", "\"http://10.0.2.2:8080/\"")
         }
     }
     

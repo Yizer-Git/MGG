@@ -87,11 +87,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         if (!TextUtils.isEmpty(imageUrl)) {
             Glide.with(context)
                 .load(imageUrl)
-                .placeholder(R.color.secondary)
-                .error(R.color.secondary)
+                .placeholder(R.drawable.product_placeholder_photo)
+                .error(R.drawable.product_placeholder_photo)
                 .into(holder.ivProductImage);
         } else {
-            holder.ivProductImage.setImageResource(R.color.secondary);
+            holder.ivProductImage.setImageResource(R.drawable.product_placeholder_photo);
         }
         
         // 点击事件

@@ -35,7 +35,7 @@ public class Product {
     private String description;
     private String images;
     
-    @Column(name = "is_on_sale")
+    @Column(name = "is_on_sale", columnDefinition = "TINYINT(1)")
     private Boolean isOnSale;
     
     @CreatedDate
