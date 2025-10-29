@@ -222,3 +222,40 @@
 - 设计稿输出时附带色彩标注、组件名称与间距标示。
 - 开发联调时使用组件库 Token（颜色、圆角、间距）统一管理，避免硬编码。
 - 在上线前针对首页、专题页、购物车进行 A/B 可用性走查，确认交互流畅与视觉一致。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![image-20251027113411203](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027113411203.png)
+
+![image-20251027113439843](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027113439843.png)
+
+![image-20251027114016479](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027114016479.png)
+
+![image-20251027123613399](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027123613399.png)
+
+![image-20251027124008145](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027124008145.png)
+
+![image-20251027124235019](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027124235019.png)
+
+![image-20251027124243550](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027124243550.png)
+
+![image-20251027124301655](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027124301655.png)
+
+![image-20251027124309283](D:\mgg\MGG\MGG\UI设计指导.assets\image-20251027124309283.png)
+
+
+
+
+

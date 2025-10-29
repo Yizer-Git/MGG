@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.CompositePageTransformer;
-import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.just.cn.mgg.R;
@@ -126,20 +124,10 @@ public class HomeFragment extends Fragment {
         HomeBannerAdapter bannerAdapter = new HomeBannerAdapter(banners);
         bannerViewPager.setAdapter(bannerAdapter);
         bannerViewPager.setOffscreenPageLimit(3);
-        bannerViewPager.setClipToPadding(false);
-        bannerViewPager.setClipChildren(false);
         View pagerChild = bannerViewPager.getChildAt(0);
         if (pagerChild instanceof RecyclerView) {
             pagerChild.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
-
-        CompositePageTransformer transformer = new CompositePageTransformer();
-        transformer.addTransformer(new MarginPageTransformer(24));
-        transformer.addTransformer((page, position) -> {
-            float scale = 0.92f + (1 - Math.abs(position)) * 0.08f;
-            page.setScaleY(scale);
-        });
-        bannerViewPager.setPageTransformer(transformer);
 
         new TabLayoutMediator(bannerTabLayout, bannerViewPager, (tab, position) -> {
             if (tab.getCustomView() == null) {
