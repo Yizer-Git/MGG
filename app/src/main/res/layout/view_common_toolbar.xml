@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.MaterialToolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/toolbar_height"
+    android:background="@color/color_base"
+    android:elevation="0dp"
+    app:navigationIcon="@drawable/ic_nav_back"
+    app:titleTextAppearance="@style/TextAppearance.MGG.Headline3"
+    app:titleTextColor="@color/text_primary">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom"
+        android:background="@color/color_frame" />
+</com.google.android.material.appbar.MaterialToolbar>

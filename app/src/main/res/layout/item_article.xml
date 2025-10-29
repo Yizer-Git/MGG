@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="@dimen/spacing_medium"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackground"
     app:cardBackgroundColor="@color/color_surface_main"
-    app:cardCornerRadius="18dp"
+    app:cardCornerRadius="@dimen/corner_radius_card"
     app:cardElevation="0dp"
     app:strokeColor="@color/color_frame"
     app:strokeWidth="1dp">
@@ -17,13 +17,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="120dp"
-        android:padding="12dp">
+        android:minHeight="@dimen/article_item_min_height"
+        android:padding="@dimen/spacing_large">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivArticleCover"
-            android:layout_width="112dp"
-            android:layout_height="112dp"
+            android:layout_width="@dimen/article_cover_size"
+            android:layout_height="@dimen/article_cover_size"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,13 +34,12 @@
 
         <TextView
             android:id="@+id/tvArticleTitle"
-            style="@style/TextAppearance.Material3.TitleMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/spacing_large"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/text_primary"
+            android:textAppearance="@style/TextAppearance.MGG.Headline3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivArticleCover"
             app:layout_constraintTop_toTopOf="@id/ivArticleCover"
@@ -48,14 +47,13 @@
 
         <TextView
             android:id="@+id/tvArticleSummary"
-            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginEnd="@dimen/spacing_xs"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textColor="@color/text_secondary"
+            android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvArticleTitle"
             app:layout_constraintTop_toBottomOf="@id/tvArticleTitle"
@@ -63,11 +61,10 @@
 
         <TextView
             android:id="@+id/tvArticleMeta"
-            style="@style/TextAppearance.Material3.BodySmall"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/text_tertiary"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:textAppearance="@style/TextAppearance.MGG.Caption"
             app:layout_constraintBottom_toBottomOf="@id/ivArticleCover"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tvArticleTitle"

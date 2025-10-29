@@ -3,137 +3,109 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="6dp"
-    android:layout_marginTop="12dp"
-    android:layout_marginEnd="6dp"
+    android:layout_marginStart="@dimen/spacing_grid_item"
+    android:layout_marginTop="@dimen/spacing_medium"
+    android:layout_marginEnd="@dimen/spacing_grid_item"
     app:cardBackgroundColor="@color/color_surface_main"
-    app:cardCornerRadius="18dp"
+    app:cardCornerRadius="@dimen/corner_radius_card"
     app:cardElevation="0dp"
     app:strokeColor="@color/color_frame"
     app:strokeWidth="1dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="0dp">
+        android:padding="@dimen/spacing_large">
 
-        <!-- 产品图片 -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivProductImage"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:scaleType="centerCrop"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/product_image_height"
             android:background="@color/color_base_soft"
-            app:shapeAppearanceOverlay="@style/RoundedTop"
-            android:contentDescription="@string/product_image" />
+            android:contentDescription="@string/product_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedTop" />
 
-        <!-- 产品信息 -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:background="@color/color_surface_main">
+            android:ellipsize="end"
+            android:letterSpacing="0.02"
+            android:lineSpacingMultiplier="1.2"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.MGG.Headline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivProductImage"
+            app:layout_goneMarginTop="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_large"
+            tools:text="产品名称" />
 
-            <!-- 产品名称 -->
-            <TextView
-                android:id="@+id/tvProductName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="产品名称"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:lineSpacingMultiplier="1.2"
-                android:letterSpacing="0.02" />
+        <TextView
+            android:id="@+id/tvProductDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.3"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName"
+            android:layout_marginTop="@dimen/spacing_small"
+            tools:text="产品描述" />
 
-            <!-- 产品描述 -->
-            <TextView
-                android:id="@+id/tvProductDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="产品描述"
-                android:textSize="12sp"
-                android:textColor="@color/text_secondary"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:lineSpacingMultiplier="1.3"
-                android:layout_marginTop="6dp" />
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:background="@color/color_frame"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductDesc" />
 
-            <!-- 分割线 -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/color_frame_soft"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp" />
+        <TextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MGG.Price"
+            app:layout_constraintBottom_toBottomOf="@id/tvSales"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="¥19.90" />
 
-            <!-- 价格和销量 -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/tvOriginalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textAppearance="@style/TextAppearance.MGG.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProductPrice"
+            tools:text="¥29.90" />
 
-                <!-- 价格区域 -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_surface_card"
+            android:paddingStart="@dimen/spacing_large"
+            android:paddingTop="@dimen/spacing_xs"
+            android:paddingEnd="@dimen/spacing_large"
+            android:paddingBottom="@dimen/spacing_xs"
+            android:textAppearance="@style/TextAppearance.MGG.Caption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="已售520" />
 
-                    <TextView
-                        android:id="@+id/tvProductPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="¥19.90"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/color_accent"
-                        android:fontFamily="sans-serif-medium" />
-
-                    <TextView
-                        android:id="@+id/tvOriginalPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="¥29.90"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_tertiary"
-                        android:layout_marginTop="2dp" />
-
-                </LinearLayout>
-
-                <!-- 销量标签 -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="end">
-
-                    <TextView
-                        android:id="@+id/tvSales"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="已售520"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:background="@drawable/bg_surface_card"
-                        android:fontFamily="sans-serif-medium" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
 

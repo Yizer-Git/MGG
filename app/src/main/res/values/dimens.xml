@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ========== Spacing scale (8dp grid) ========== -->
+    <dimen name="spacing_xs">4dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">12dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xl">20dp</dimen>
+    <dimen name="spacing_xxl">24dp</dimen>
+    <dimen name="spacing_xxxl">32dp</dimen>
+    <dimen name="spacing_huge">48dp</dimen>
+
+    <!-- ========== Semantic spacing ========== -->
+    <dimen name="spacing_page_horizontal">16dp</dimen>
+    <dimen name="spacing_page_vertical">20dp</dimen>
+    <dimen name="spacing_module_vertical">24dp</dimen>
+    <dimen name="spacing_component_inner">12dp</dimen>
+    <dimen name="spacing_grid_item">6dp</dimen>
+
+    <!-- ========== Corner radii ========== -->
+    <dimen name="corner_radius_button">12dp</dimen>
+    <dimen name="corner_radius_card">16dp</dimen>
+    <dimen name="corner_radius_card_large">20dp</dimen>
+    <dimen name="corner_radius_search_bar">22dp</dimen>
+    <dimen name="corner_radius_chip">16dp</dimen>
+
+    <!-- ========== Component dimensions ========== -->
+    <dimen name="min_touch_target">44dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="search_bar_height">44dp</dimen>
+    <dimen name="chip_height">32dp</dimen>
+    <dimen name="bottom_bar_min_height">72dp</dimen>
+    <dimen name="article_item_min_height">120dp</dimen>
+
+    <!-- ========== Media sizing ========== -->
+    <dimen name="product_image_height">180dp</dimen>
+    <dimen name="cart_item_image_size">96dp</dimen>
+    <dimen name="order_item_image_size">72dp</dimen>
+    <dimen name="article_cover_size">112dp</dimen>
+    <dimen name="feature_card_image_size">80dp</dimen>
+    <dimen name="home_banner_height">200dp</dimen>
+    <dimen name="icon_size_small">20dp</dimen>
+    <dimen name="icon_size_medium">24dp</dimen>
+    <dimen name="icon_size_large">30dp</dimen>
+    <dimen name="avatar_size">88dp</dimen>
+    <dimen name="review_avatar_size">48dp</dimen>
+
+    <!-- ========== Typography scale ========== -->
+    <dimen name="text_size_h1">26sp</dimen>
+    <dimen name="text_size_h2">20sp</dimen>
+    <dimen name="text_size_h3">16sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_price">20sp</dimen>
+</resources>

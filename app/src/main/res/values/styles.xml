@@ -3,8 +3,8 @@
     <!-- Rounded top corners -->
     <style name="RoundedTop">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">16dp</item>
-        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">@dimen/corner_radius_card</item>
+        <item name="cornerSizeTopRight">@dimen/corner_radius_card</item>
         <item name="cornerSizeBottomLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
     </style>
@@ -12,19 +12,19 @@
     <!-- Rounded corners -->
     <style name="RoundedAll">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">@dimen/corner_radius_card</item>
     </style>
 
     <!-- Button style - primary -->
     <style name="Button.Primary" parent="Widget.Material3.Button">
         <item name="backgroundTint">@color/color_accent</item>
-        <item name="android:textColor">@color/color_surface_main</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="android:textColor">@color/text_on_accent</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.06</item>
-        <item name="android:paddingTop">12dp</item>
-        <item name="android:paddingBottom">12dp</item>
-        <item name="android:minHeight">48dp</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
+        <item name="android:minHeight">@dimen/button_height</item>
     </style>
 
     <!-- Button style - primary outlined -->
@@ -32,9 +32,10 @@
         <item name="strokeColor">@color/color_accent</item>
         <item name="android:textColor">@color/color_accent</item>
         <item name="backgroundTint">@color/color_surface_main</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.06</item>
+        <item name="android:minHeight">@dimen/button_height</item>
     </style>
 
     <!-- Button style - secondary -->
@@ -42,9 +43,10 @@
         <item name="strokeColor">@color/color_frame</item>
         <item name="android:textColor">@color/text_primary</item>
         <item name="backgroundTint">@color/color_surface_main</item>
-        <item name="cornerRadius">12dp</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:letterSpacing">0.06</item>
+        <item name="android:minHeight">@dimen/button_height</item>
     </style>
 
     <!-- Text input layout appearance -->
@@ -52,10 +54,10 @@
         <item name="boxBackgroundMode">outline</item>
         <item name="boxStrokeWidth">1dp</item>
         <item name="boxStrokeWidthFocused">2dp</item>
-        <item name="boxCornerRadiusTopStart">16dp</item>
-        <item name="boxCornerRadiusTopEnd">16dp</item>
-        <item name="boxCornerRadiusBottomStart">16dp</item>
-        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/corner_radius_card</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/corner_radius_card</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/corner_radius_card</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/corner_radius_card</item>
         <item name="boxStrokeColor">@color/color_frame</item>
         <item name="hintTextColor">@color/text_hint</item>
         <item name="counterTextColor">@color/text_hint</item>
@@ -63,7 +65,7 @@
 
     <!-- Card style -->
     <style name="Card.Elegant" parent="Widget.Material3.CardView.Elevated">
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">@dimen/corner_radius_card</item>
         <item name="cardElevation">2dp</item>
         <item name="strokeWidth">1dp</item>
         <item name="strokeColor">@color/color_frame_soft</item>
@@ -77,5 +79,71 @@
         <item name="shapeAppearance">@style/RoundedAll</item>
         <item name="strokeColor">@color/color_frame</item>
         <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- ========== TextAppearance system ========== -->
+    <style name="TextAppearance.MGG.Headline1" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">@dimen/text_size_h1</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.MGG.Headline2" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.MGG.Headline3" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/text_size_h3</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="TextAppearance.MGG.Body" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.MGG.BodySecondary" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.MGG.Caption" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="TextAppearance.MGG.Price" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/text_size_price</item>
+        <item name="android:textColor">@color/color_accent</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- ========== Button widgets ========== -->
+    <style name="Widget.MGG.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/color_accent</item>
+        <item name="android:textColor">@color/text_on_accent</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAppearance">@style/TextAppearance.MGG.Body</item>
+    </style>
+
+    <style name="Widget.MGG.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="strokeColor">@color/color_accent</item>
+        <item name="android:textColor">@color/color_accent</item>
+        <item name="cornerRadius">@dimen/corner_radius_button</item>
+        <item name="android:minHeight">@dimen/button_height</item>
     </style>
 </resources>

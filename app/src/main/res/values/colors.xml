@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 基础色 -->
+    <!-- Base neutrals -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- 品牌基调 -->
-    <color name="color_base">#D9C7AA</color>
-    <color name="color_base_soft">#E6D8C0</color>
-    <color name="color_frame">#BAA789</color>
-    <color name="color_frame_soft">#C8B89A</color>
+    <!-- Background palette -->
+    <color name="color_base">#FFFFFF</color>
+    <color name="color_base_soft">#FAFAFA</color>
 
-    <!-- 强调色 -->
-    <color name="color_accent">#5B2C18</color>
-    <color name="color_accent_dark">#421F11</color>
-    <color name="color_accent_transparent_10">#1A5B2C18</color>
-    <color name="color_accent_transparent_20">#335B2C18</color>
+    <!-- Borders & dividers -->
+    <color name="color_frame">#E0E0E0</color>
+    <color name="color_frame_soft">#F5F5F5</color>
 
-    <!-- 表面与卡片 -->
-    <color name="color_surface_main">#FFFCF9</color>
-    <color name="color_surface_elevated">#F7EBDD</color>
+    <!-- Accent palette -->
+    <color name="color_accent">#BAA789</color>
+    <color name="color_accent_dark">#9A8A6F</color>
+    <color name="color_accent_light">#D4C8B3</color>
+    <color name="color_accent_transparent_10">#1ABAA789</color>
+    <color name="color_accent_transparent_20">#33BAA789</color>
 
-    <!-- 文本色 -->
-    <color name="text_primary">#5B2C18</color>
-    <color name="text_secondary">#4B2415</color>
-    <color name="text_tertiary">#7B5140</color>
-    <color name="text_hint">#A17D69</color>
+    <!-- Surface shades -->
+    <color name="color_surface_main">#FFFFFF</color>
+    <color name="color_surface_elevated">#FAFAFA</color>
 
-    <!-- 辅助用色 -->
-    <color name="divider">#805B2C18</color>
-    <color name="overlay_mask">#995B2C18</color>
+    <!-- Typography colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="text_tertiary">#9E9E9E</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_on_accent">#FFFFFF</color>
 
-    <!-- 状态色（保持原有语义，但柔化饱和度） -->
-    <color name="success">#528B3B</color>
-    <color name="warning">#B8801A</color>
-    <color name="error">#A7352B</color>
-    <color name="info">#3E6A89</color>
+    <!-- Utility -->
+    <color name="divider">#E0E0E0</color>
+    <color name="overlay_mask">#80000000</color>
 
-    <!-- 透明度 -->
+    <!-- Status colors -->
+    <color name="success">#66BB6A</color>
+    <color name="warning">#FFA726</color>
+    <color name="error">#EF5350</color>
+    <color name="info">#42A5F5</color>
+
     <color name="transparent">#00000000</color>
 </resources>
