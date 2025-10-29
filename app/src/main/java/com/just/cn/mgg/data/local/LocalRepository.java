@@ -561,6 +561,19 @@ public class LocalRepository {
         database.orderDao().update(entity);
     }
 
+    public void payOrder(String orderId) {
+        OrderEntity entity = database.orderDao().findById(orderId);
+        if (entity == null) {
+            throw new IllegalArgumentException("订单不存在");
+        }
+        if (entity.getStatus() != Constants.ORDER_STATUS_PENDING) {
+            throw new IllegalStateException("当前状态不可支付");
+        }
+        entity.setStatus(Constants.ORDER_STATUS_PAID);
+        entity.setPayTime(now());
+        database.orderDao().update(entity);
+    }
+
     public void confirmOrder(String orderId) {
         OrderEntity entity = database.orderDao().findById(orderId);
         if (entity == null) {
@@ -581,6 +594,18 @@ public class LocalRepository {
 
     public List<Review> getProductReviews(int productId) {
         return mapReviews(database.reviewDao().getByProduct(productId));
+    }
+
+    public List<Review> searchCommunityReviews(String keyword) {
+        if (keyword == null) {
+            keyword = "";
+        }
+        return mapReviews(database.reviewDao().search(keyword));
+    }
+
+    public Review getReviewDetail(long reviewId) {
+        ReviewEntity entity = database.reviewDao().findById(reviewId);
+        return entity == null ? null : mapReview(entity);
     }
 
     private List<Review> mapReviews(List<ReviewEntity> entities) {
@@ -629,6 +654,58 @@ public class LocalRepository {
         }
         return comments;
     }
+
+    public ReviewComment addReviewComment(long reviewId, int userId, String content) {
+        if (content == null || content.trim().isEmpty()) {
+            throw new IllegalArgumentException("评论内容不能为空");
+        }
+        ReviewEntity review = database.reviewDao().findById(reviewId);
+        if (review == null) {
+            throw new IllegalArgumentException("评价不存在");
+        }
+        UserEntity userEntity = database.userDao().findById(userId);
+        if (userEntity == null) {
+            throw new IllegalArgumentException("用户不存在");
+        }
+
+        ReviewCommentEntity entity = new ReviewCommentEntity();
+        entity.setReviewId(reviewId);
+        entity.setUserId(userId);
+        entity.setContent(content.trim());
+        entity.setCreatedAt(now());
+        long newId = database.reviewCommentDao().insert(entity);
+        entity.setCommentId(newId);
+        database.reviewDao().adjustCommentCount(reviewId, 1);
+        return mapReviewComment(entity);
+    }
+
+    public boolean toggleReviewLike(long reviewId, int userId) {
+        ReviewEntity review = database.reviewDao().findById(reviewId);
+        if (review == null) {
+            throw new IllegalArgumentException("评价不存在");
+        }
+        ReviewLikeEntity existing = database.reviewLikeDao().findLike(reviewId, userId);
+        if (existing != null) {
+            database.reviewLikeDao().delete(reviewId, userId);
+            database.reviewDao().adjustLikeCount(reviewId, -1);
+            return false;
+        }
+        ReviewLikeEntity likeEntity = new ReviewLikeEntity();
+        likeEntity.setReviewId(reviewId);
+        likeEntity.setUserId(userId);
+        likeEntity.setCreatedAt(now());
+        database.reviewLikeDao().insert(likeEntity);
+        database.reviewDao().adjustLikeCount(reviewId, 1);
+        return true;
+    }
+
+    public boolean hasUserLikedReview(long reviewId, int userId) {
+        if (userId == 0) {
+            return false;
+        }
+        return database.reviewLikeDao().findLike(reviewId, userId) != null;
+    }
+
 
     private ReviewComment mapReviewComment(ReviewCommentEntity entity) {
         ReviewComment comment = new ReviewComment();

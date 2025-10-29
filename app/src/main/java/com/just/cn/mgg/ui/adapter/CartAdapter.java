@@ -5,12 +5,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.ImageButton; // <-- Import ImageButton
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.CompoundButton; // <-- Import CompoundButton
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -171,8 +169,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         TextView tvProductName;
         TextView tvProductPrice;
         TextView tvQuantity;
-        Button btnDecrease;
-        Button btnIncrease;
+        ImageButton btnDecrease;
+        ImageButton btnIncrease;
         ImageButton btnDelete; // <-- 添加删除按钮引用
 
         public ViewHolder(@NonNull View itemView) {

@@ -143,5 +143,53 @@ public class SPUtils {
     public static String getUsername(Context context) {
         return getString(context, Constants.KEY_NICKNAME, "");
     }
+
+    public static void setPushNotificationEnabled(Context context, boolean enabled) {
+        put(context, Constants.KEY_PUSH_NOTIFICATION, enabled);
+    }
+
+    public static boolean isPushNotificationEnabled(Context context) {
+        return getBoolean(context, Constants.KEY_PUSH_NOTIFICATION, true);
+    }
+
+    public static void setActivityPromotionEnabled(Context context, boolean enabled) {
+        put(context, Constants.KEY_ACTIVITY_PROMOTION, enabled);
+    }
+
+    public static boolean isActivityPromotionEnabled(Context context) {
+        return getBoolean(context, Constants.KEY_ACTIVITY_PROMOTION, true);
+    }
+
+    public static void setLocationServiceEnabled(Context context, boolean enabled) {
+        put(context, Constants.KEY_LOCATION_SERVICE, enabled);
+    }
+
+    public static boolean isLocationServiceEnabled(Context context) {
+        return getBoolean(context, Constants.KEY_LOCATION_SERVICE, false);
+    }
+
+    public static void saveUserAvatar(Context context, String avatarUri) {
+        put(context, Constants.KEY_USER_AVATAR, avatarUri);
+    }
+
+    public static String getUserAvatar(Context context) {
+        return getString(context, Constants.KEY_USER_AVATAR, "");
+    }
+
+    public static void saveUserGender(Context context, int gender) {
+        put(context, Constants.KEY_USER_GENDER, gender);
+    }
+
+    public static int getUserGender(Context context) {
+        return getInt(context, Constants.KEY_USER_GENDER, 0);
+    }
+
+    public static void saveUserBirthday(Context context, String birthday) {
+        put(context, Constants.KEY_USER_BIRTHDAY, birthday);
+    }
+
+    public static String getUserBirthday(Context context) {
+        return getString(context, Constants.KEY_USER_BIRTHDAY, "");
+    }
 }
 

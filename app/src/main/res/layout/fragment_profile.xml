@@ -277,49 +277,155 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Account & Security -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardAccountSecurity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/color_surface_main"
             app:cardCornerRadius="20dp"
-            app:cardElevation="2dp"
+            app:cardElevation="0dp"
             app:strokeColor="@color/color_frame"
             app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="12dp">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/profile_story_photo"
-                    app:shapeAppearanceOverlay="@style/RoundedTop" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:paddingStart="4dp"
+                    android:paddingBottom="12dp"
+                    android:text="@string/profile_section_account_security"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/profile_story_title"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                <include
+                    android:id="@+id/itemPersonalInfo"
+                    layout="@layout/view_profile_menu_item" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="@string/profile_story_description"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
-                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/color_frame_soft" />
+
+                <include
+                    android:id="@+id/itemAccountSecurity"
+                    layout="@layout/view_profile_menu_item" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/color_frame_soft" />
+
+                <include
+                    android:id="@+id/itemPhoneBinding"
+                    layout="@layout/view_profile_menu_item" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Notification & Reminders -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/color_surface_main"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_frame"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:paddingBottom="12dp"
+                    android:text="@string/profile_section_notifications"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <include
+                    android:id="@+id/itemPushNotification"
+                    layout="@layout/view_profile_menu_item_switch" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/color_frame_soft" />
+
+                <include
+                    android:id="@+id/itemActivityPromotion"
+                    layout="@layout/view_profile_menu_item_switch" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/color_frame_soft" />
+
+                <include
+                    android:id="@+id/itemLocationService"
+                    layout="@layout/view_profile_menu_item_switch" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Support Tools -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSupport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/color_surface_main"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/color_frame"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="4dp"
+                    android:paddingBottom="12dp"
+                    android:text="@string/profile_section_support"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <include
+                    android:id="@+id/itemInvoice"
+                    layout="@layout/view_profile_menu_item" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="4dp"
+                    android:background="@color/color_frame_soft" />
+
+                <include
+                    android:id="@+id/itemFeedback"
+                    layout="@layout/view_profile_menu_item" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

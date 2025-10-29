@@ -24,6 +24,12 @@ public class Constants {
     public static final String KEY_AVATAR = "avatar";
     public static final String KEY_IS_FIRST_LAUNCH = "is_first_launch";
     public static final String KEY_IS_LOGIN = "is_login";
+    public static final String KEY_PUSH_NOTIFICATION = "push_notification";
+    public static final String KEY_ACTIVITY_PROMOTION = "activity_promotion";
+    public static final String KEY_LOCATION_SERVICE = "location_service";
+    public static final String KEY_USER_AVATAR = "user_avatar";
+    public static final String KEY_USER_GENDER = "user_gender";
+    public static final String KEY_USER_BIRTHDAY = "user_birthday";
     
     // ========== 页面请求码 ==========
     public static final int REQUEST_CODE_LOGIN = 1001;

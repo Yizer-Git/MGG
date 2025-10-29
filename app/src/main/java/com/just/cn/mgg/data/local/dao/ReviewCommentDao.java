@@ -16,6 +16,9 @@ public interface ReviewCommentDao {
     List<ReviewCommentEntity> getCommentsForReview(long reviewId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    long insert(ReviewCommentEntity comment);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<ReviewCommentEntity> comments);
 
     @Query("DELETE FROM review_comments")

@@ -68,9 +68,9 @@
             android:background="@drawable/bg_surface_card"
             android:contentDescription="@string/product_image"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/spacing_large"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider"
-            app:layout_marginTop="@dimen/spacing_large"
             app:shapeAppearanceOverlay="@style/RoundedAll"
             tools:src="@drawable/ancient_book" />
 

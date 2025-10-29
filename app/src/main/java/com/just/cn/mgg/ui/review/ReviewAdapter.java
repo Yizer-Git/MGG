@@ -31,9 +31,14 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
 
     private final Context context;
     private final List<Review> data = new ArrayList<>();
+    private OnReviewClickListener onReviewClickListener;
 
     public ReviewAdapter(Context context) {
         this.context = context;
+    }
+
+    public void setOnReviewClickListener(OnReviewClickListener listener) {
+        this.onReviewClickListener = listener;
     }
 
     public void replaceItems(List<Review> list) {
@@ -89,6 +94,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
             holder.recyclerImages.setVisibility(View.VISIBLE);
             holder.imageAdapter.setImages(images);
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            if (onReviewClickListener != null) {
+                onReviewClickListener.onReviewClick(review);
+            }
+        });
     }
 
     @Override
@@ -138,5 +149,9 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.ViewHolder
             }
         }
         return result;
+    }
+
+    public interface OnReviewClickListener {
+        void onReviewClick(Review review);
     }
 }

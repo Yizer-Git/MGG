@@ -69,8 +69,8 @@ public class OrderListActivity extends AppCompatActivity implements OrderAdapter
 
         initViews();
         setupToolbar();
-        setupTabs();
         setupRecyclerView();
+        setupTabs();
         setupOrderDetailLauncher();
 
         // 根据传入的状态或默认状态加载数据
@@ -176,13 +176,17 @@ public class OrderListActivity extends AppCompatActivity implements OrderAdapter
     private void showEmptyView() {
         rvOrders.setVisibility(View.GONE);
         tvNoOrders.setVisibility(View.VISIBLE);
-        orderAdapter.setOrderList(null); // 清空适配器
+        if (orderAdapter != null) {
+            orderAdapter.setOrderList(null); // 清空适配器
+        }
     }
 
     private void showOrderList(List<Order> orders) {
         rvOrders.setVisibility(View.VISIBLE);
         tvNoOrders.setVisibility(View.GONE);
-        orderAdapter.setOrderList(orders);
+        if (orderAdapter != null) {
+            orderAdapter.setOrderList(orders);
+        }
     }
 
 
@@ -198,7 +202,7 @@ public class OrderListActivity extends AppCompatActivity implements OrderAdapter
     @Override
     public void onAction1Click(Order order, int position) {
         // "取消订单" (状态 0)
-        if (order.getStatus() == 0) {
+        if (order.getStatus() == Constants.ORDER_STATUS_PENDING) {
             new AlertDialog.Builder(this)
                     .setTitle("取消订单")
                     .setMessage("您确定要取消这个订单吗？")
@@ -210,11 +214,15 @@ public class OrderListActivity extends AppCompatActivity implements OrderAdapter
 
     @Override
     public void onAction2Click(Order order, int position) {
-        if (order.getStatus() == 0) {
+        if (order.getStatus() == Constants.ORDER_STATUS_PENDING) {
             // "去支付"
-            ToastUtils.show(this, "支付功能待实现");
-            // TODO: 跳转支付
-        } else if (order.getStatus() == 2) {
+            new AlertDialog.Builder(this)
+                    .setTitle("支付订单")
+                    .setMessage("确认支付该订单吗？")
+                    .setPositiveButton("确定", (dialog, which) -> payOrder(order, position))
+                    .setNegativeButton("取消", null)
+                    .show();
+        } else if (order.getStatus() == Constants.ORDER_STATUS_SHIPPED) {
             // "确认收货"
             new AlertDialog.Builder(this)
                     .setTitle("确认收货")
@@ -248,6 +256,19 @@ public class OrderListActivity extends AppCompatActivity implements OrderAdapter
             loadOrders(currentStatus, currentPage);
         } catch (Exception e) {
             ToastUtils.show(this, "操作失败：" + e.getMessage());
+        } finally {
+            setLoadingState(false);
+        }
+    }
+
+    private void payOrder(Order order, int position) {
+        setLoadingState(true);
+        try {
+            repository.payOrder(order.getOrderId());
+            ToastUtils.show(this, "支付成功");
+            loadOrders(currentStatus, currentPage);
+        } catch (Exception e) {
+            ToastUtils.show(this, "支付失败：" + e.getMessage());
         } finally {
             setLoadingState(false);
         }

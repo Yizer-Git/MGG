@@ -19,6 +19,7 @@ import com.just.cn.mgg.data.model.Product;
 import com.just.cn.mgg.ui.adapter.ProductAdapter;
 import com.just.cn.mgg.ui.main.cart.CartActivity;
 import com.just.cn.mgg.MainActivity;
+import com.just.cn.mgg.ui.search.SearchActivity;
 import com.just.cn.mgg.utils.ToastUtils;
 
 import com.google.android.material.tabs.TabLayout;
@@ -65,6 +66,8 @@ public class HomeFragment extends Fragment {
         cultureCard = view.findViewById(R.id.cultureCard);
         cultureExploreButton = view.findViewById(R.id.btnCultureExplore);
         cartShortcut = view.findViewById(R.id.btnCart);
+        View searchContainer = view.findViewById(R.id.layoutSearch);
+        View searchInput = view.findViewById(R.id.etSearch);
         bannerViewPager = view.findViewById(R.id.vpHomeBanner);
         bannerTabLayout = view.findViewById(R.id.tabHomeBanner);
 
@@ -74,6 +77,15 @@ public class HomeFragment extends Fragment {
         }
         if (cultureExploreButton != null) {
             cultureExploreButton.setOnClickListener(openCultureListener);
+        }
+        View.OnClickListener openSearchListener = v -> SearchActivity.startForProducts(requireContext());
+        if (searchContainer != null) {
+            searchContainer.setOnClickListener(openSearchListener);
+        }
+        if (searchInput != null) {
+            searchInput.setFocusable(false);
+            searchInput.setFocusableInTouchMode(false);
+            searchInput.setOnClickListener(openSearchListener);
         }
         if (cartShortcut != null) {
             cartShortcut.setOnClickListener(v -> {

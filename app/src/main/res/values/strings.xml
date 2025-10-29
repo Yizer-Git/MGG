@@ -58,6 +58,8 @@
     <string name="total">合计</string>
     <string name="settle">去结算</string>
     <string name="cart_delete_item">删除商品</string>
+    <string name="cart_quantity_decrease">减少数量</string>
+    <string name="cart_quantity_increase">增加数量</string>
 
     <!-- 订单 -->
     <string name="order_list">订单列表</string>
@@ -89,11 +91,31 @@
     <string name="customer_service">客服咨询</string>
     <string name="settings">设置</string>
     <string name="logout">退出登录</string>
+    <string name="profile_click_login">点击登录</string>
     <string name="order_status_pending">待付款</string>
     <string name="order_status_shipped">待发货</string>
     <string name="order_status_done">已完成</string>
     <string name="profile_story_title">米花糖作坊的一日三餐</string>
     <string name="profile_story_description">每天凌晨点火熬糖，午后翻炒米香，傍晚装盒寄出，把最及时的新鲜甜味送到你手里。</string>
+    <string name="profile_section_account_security">账户与安全</string>
+    <string name="profile_section_notifications">消息与提醒</string>
+    <string name="profile_section_support">辅助功能</string>
+    <string name="profile_item_personal_info">个人资料</string>
+    <string name="profile_item_personal_info_desc">完善头像、昵称等基础信息</string>
+    <string name="profile_item_account_security">账号安全</string>
+    <string name="profile_item_account_security_desc">修改密码、管理登录保护</string>
+    <string name="profile_item_phone_binding">绑定手机号</string>
+    <string name="profile_item_phone_binding_desc">绑定常用手机号，提升账号安全</string>
+    <string name="profile_item_push_notifications">推送通知</string>
+    <string name="profile_item_push_notifications_desc">接收订单动态和个性化推荐</string>
+    <string name="profile_item_activity_promotions">活动与优惠</string>
+    <string name="profile_item_activity_promotions_desc">获取新品上架和优惠提醒</string>
+    <string name="profile_item_location_service">位置服务</string>
+    <string name="profile_item_location_service_desc">基于位置推荐附近门店与活动</string>
+    <string name="profile_item_invoice">发票与报销</string>
+    <string name="profile_item_invoice_desc">管理发票抬头与开票记录</string>
+    <string name="profile_item_feedback">帮助与反馈</string>
+    <string name="profile_item_feedback_desc">查看常见问题并提交建议</string>
 
     <!-- 地址 -->
     <string name="add_address">新增地址</string>
@@ -116,12 +138,20 @@
     <string name="no_more_data">没有更多内容了</string>
     <string name="network_error">网络异常，请检查连接</string>
     <string name="server_error">服务器开小差，请稍后再试</string>
+    <string name="common_please_login">请先登录</string>
+    <string name="logout_success">已退出登录</string>
+    <string name="action_search">搜索</string>
+    <string name="action_clear">清除</string>
+    <string name="search_empty">没有找到相关内容，试试其它关键词吧</string>
+    <string name="search_hint_product">输入商品名称、口味或特色</string>
+    <string name="search_hint_community">输入关键词查找故事、手作人或节庆</string>
+    <string name="search_input_empty">请输入搜索关键词</string>
     <!-- 文化专区 -->
     <string name="culture_section_title">非遗文化</string>
     <string name="culture_section_subtitle">品牌故事 · 非遗技艺 · 国潮资讯</string>
     <string name="article_filter_all">全部</string>
-    <string name="article_filter_brand">品牌故事</string>
-    <string name="article_filter_heritage">非遗技艺</string>
+    <string name="article_filter_brand_story">品牌故事</string>
+    <string name="article_filter_craft">非遗技艺</string>
     <string name="article_filter_trend">国潮资讯</string>
     <string name="article_filter_product">产品故事</string>
     <string name="article_empty">暂时还没有内容，敬请期待～</string>
@@ -153,4 +183,63 @@
     <string name="review_like_format">点赞 %1$d</string>
     <string name="review_comment_format">评论 %1$d</string>
     <string name="review_user_default">米嘎嘎用户</string>
+    <string name="review_detail_title">社区详情</string>
+    <string name="review_comment_section">全部评论</string>
+    <string name="review_comment_empty">还没有评论，快来抢个沙发</string>
+    <string name="review_action_like">点赞</string>
+    <string name="review_action_send">发送</string>
+    <string name="review_comment_hint">说点什么吧…</string>
+    <string name="review_like_require_login">登录后才能点赞哦</string>
+    <string name="review_comment_require_login">登录后才能发表评论</string>
+    <string name="review_comment_empty_error">评论内容不能为空</string>
+    <string name="review_comment_success">评论已发布</string>
+    <string name="review_not_found">内容不存在或已被删除</string>
+
+    <!-- 个人资料设置 -->
+    <string name="personal_info_title">个人资料</string>
+    <string name="personal_info_avatar">头像</string>
+    <string name="personal_info_nickname_hint">请输入昵称</string>
+    <string name="personal_info_gender">性别</string>
+    <string name="personal_info_gender_male">男</string>
+    <string name="personal_info_gender_female">女</string>
+    <string name="personal_info_gender_unknown">保密</string>
+    <string name="personal_info_birthday">生日</string>
+    <string name="personal_info_select_birthday">请选择生日</string>
+    <string name="personal_info_save_success">个人资料已保存</string>
+    <string name="personal_info_avatar_option_gallery">从相册选择</string>
+    <string name="personal_info_avatar_option_camera">拍照</string>
+    <string name="personal_info_avatar_option_cancel">取消</string>
+
+    <!-- 账号安全 -->
+    <string name="account_security_title">账号安全</string>
+    <string name="account_security_change_password">修改密码</string>
+    <string name="account_security_two_factor">二次验证</string>
+    <string name="account_security_login_history">登录记录</string>
+    <string name="feature_in_development">功能开发中，敬请期待</string>
+
+    <!-- 绑定手机号 -->
+    <string name="phone_binding_title">绑定手机号</string>
+    <string name="phone_binding_current">当前绑定手机号</string>
+    <string name="phone_binding_change">更换手机号</string>
+    <string name="phone_binding_change_todo">功能开发中，敬请期待</string>
+    <string name="phone_binding_not_bound">暂未绑定手机号</string>
+
+    <!-- 发票与报销 -->
+    <string name="invoice_title">发票与报销</string>
+    <string name="invoice_empty_title">暂无发票记录</string>
+    <string name="invoice_empty_description">开票记录将在这里展示，敬请期待。</string>
+    <string name="invoice_add_header">添加发票抬头</string>
+
+    <!-- 帮助与反馈 -->
+    <string name="feedback_title">帮助与反馈</string>
+    <string name="feedback_faq_header">常见问题</string>
+    <string name="feedback_contact_hint">请输入联系方式（选填）</string>
+    <string name="feedback_input_hint">请描述您遇到的问题或建议</string>
+    <string name="feedback_submit_success">感谢反馈，我们会尽快处理</string>
+    <string name="feedback_faq_q1">如何修改我的收货地址？</string>
+    <string name="feedback_faq_a1">在我的页面点击“地址管理”，即可新增或编辑收货地址。</string>
+    <string name="feedback_faq_q2">米花糖发货需要多久？</string>
+    <string name="feedback_faq_a2">订单通常会在48小时内发出，节假日可能顺延。</string>
+    <string name="feedback_faq_q3">如何申请售后服务？</string>
+    <string name="feedback_faq_a3">进入订单详情，点击“售后申请”即可提交需求。</string>
 </resources>

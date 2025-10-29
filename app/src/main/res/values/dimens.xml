@@ -26,6 +26,7 @@
 
     <!-- ========== Component dimensions ========== -->
     <dimen name="min_touch_target">44dp</dimen>
+    <dimen name="cart_quantity_button_size">36dp</dimen>
     <dimen name="button_height">48dp</dimen>
     <dimen name="toolbar_height">56dp</dimen>
     <dimen name="search_bar_height">44dp</dimen>

@@ -245,7 +245,7 @@ public class OrderDetailActivity extends AppCompatActivity {
                 btnOrderAction2.setVisibility(View.VISIBLE);
 
                 btnOrderAction1.setOnClickListener(v -> showCancelConfirmation());
-                btnOrderAction2.setOnClickListener(v -> ToastUtils.show(this, "支付功能待实现"));
+                btnOrderAction2.setOnClickListener(v -> showPayConfirmation());
                 break;
             case Constants.ORDER_STATUS_SHIPPED: // 待收货
                 btnOrderAction2.setText("确认收货");
@@ -256,6 +256,15 @@ public class OrderDetailActivity extends AppCompatActivity {
                 bottomActionContainer.setVisibility(View.GONE); // 其他状态无操作
                 break;
         }
+    }
+
+    private void showPayConfirmation() {
+        new AlertDialog.Builder(this)
+                .setTitle("支付订单")
+                .setMessage("确认支付该订单吗？")
+                .setPositiveButton("确定", (dialog, which) -> payOrder())
+                .setNegativeButton("取消", null)
+                .show();
     }
 
     private void showCancelConfirmation() {
@@ -299,6 +308,22 @@ public class OrderDetailActivity extends AppCompatActivity {
             loadOrderDetail();
         } catch (Exception e) {
             ToastUtils.show(this, "操作失败：" + e.getMessage());
+        } finally {
+            setLoadingState(false);
+        }
+    }
+
+    private void payOrder() {
+        setLoadingState(true);
+        try {
+            repository.payOrder(currentOrder.getOrderId());
+            ToastUtils.show(this, "支付成功");
+            orderStatusChanged = true;
+            loadOrderDetail();
+        } catch (IllegalStateException | IllegalArgumentException e) {
+            ToastUtils.show(this, e.getMessage());
+        } catch (Exception e) {
+            ToastUtils.show(this, "支付失败：" + e.getMessage());
         } finally {
             setLoadingState(false);
         }

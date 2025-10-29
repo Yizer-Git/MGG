@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.just.cn.mgg.R;
 import com.just.cn.mgg.data.model.Order;
 import com.just.cn.mgg.data.model.OrderItem;
+import com.just.cn.mgg.utils.Constants;
 import com.just.cn.mgg.utils.PriceUtils;
 
 import java.util.ArrayList;
@@ -108,7 +109,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.btnOrderAction2.setVisibility(View.GONE);
 
         switch (order.getStatus()) {
-            case 0: // 待付款
+            case Constants.ORDER_STATUS_PENDING: // 待付款
                 holder.btnOrderAction1.setText("取消订单");
                 holder.btnOrderAction1.setVisibility(View.VISIBLE);
                 holder.btnOrderAction2.setText("去支付");
@@ -121,21 +122,21 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                     if (listener != null) listener.onAction2Click(order, position);
                 });
                 break;
-            case 1: // 待发货
+            case Constants.ORDER_STATUS_PAID: // 待发货
                 holder.btnOrderAction1.setVisibility(View.GONE);
                 break;
-            case 2: // 待收货
+            case Constants.ORDER_STATUS_SHIPPED: // 待收货
                 holder.btnOrderAction2.setText("确认收货");
                 holder.btnOrderAction2.setVisibility(View.VISIBLE);
                 holder.btnOrderAction2.setOnClickListener(v -> {
                     if (listener != null) listener.onAction2Click(order, position);
                 });
                 break;
-            case 3: // 已完成
+            case Constants.ORDER_STATUS_COMPLETED: // 已完成
                 holder.btnOrderAction2.setText("去评价");
                 holder.btnOrderAction2.setVisibility(View.GONE); // 评价功能待实现
                 break;
-            case 4: // 已取消
+            case Constants.ORDER_STATUS_CANCELLED: // 已取消
                 // 无操作
                 break;
         }

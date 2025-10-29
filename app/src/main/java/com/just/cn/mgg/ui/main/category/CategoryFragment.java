@@ -10,10 +10,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -34,7 +34,7 @@ import java.util.Objects;
  */
 public class CategoryFragment extends Fragment {
 
-    private SwipeRefreshLayout swipeRefreshLayout;
+    private NestedScrollView nestedScrollView;
     private RecyclerView recyclerView;
     private TextView emptyView;
     private CircularProgressIndicator progressIndicator;
@@ -65,14 +65,13 @@ public class CategoryFragment extends Fragment {
         initViews(view);
         initRecyclerView();
         initChips();
-        initSwipeRefresh();
 
         repository = new LocalRepository(requireContext());
         loadArticles(true);
     }
 
     private void initViews(View root) {
-        swipeRefreshLayout = root.findViewById(R.id.swipeRefreshArticles);
+        nestedScrollView = root.findViewById(R.id.nestedScrollCategory);
         recyclerView = root.findViewById(R.id.recyclerViewArticles);
         emptyView = root.findViewById(R.id.tvEmptyArticles);
         progressIndicator = root.findViewById(R.id.progressBarArticles);
@@ -83,6 +82,14 @@ public class CategoryFragment extends Fragment {
             backButton.setOnClickListener(v -> requireActivity().getOnBackPressedDispatcher().onBackPressed());
         }
 
+        if (nestedScrollView != null) {
+            nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener)
+                    (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                        if (!v.canScrollVertically(1) && !isLoading && !isLastPage) {
+                            loadArticles(false);
+                        }
+                    });
+        }
 
         articleAdapter = new ArticleAdapter(requireContext());
         articleAdapter.setOnArticleClickListener(this::navigateToArticleDetail);
@@ -92,25 +99,6 @@ public class CategoryFragment extends Fragment {
         layoutManager = new LinearLayoutManager(requireContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(articleAdapter);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (dy <= 0 || isLoading || isLastPage) {
-                    return;
-                }
-
-                int visibleItemCount = layoutManager.getChildCount();
-                int totalItemCount = layoutManager.getItemCount();
-                int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-
-                if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount - 2
-                        && firstVisibleItemPosition >= 0
-                        && totalItemCount >= PAGE_SIZE) {
-                    loadArticles(false);
-                }
-            }
-        });
     }
 
     private void initChips() {
@@ -133,11 +121,6 @@ public class CategoryFragment extends Fragment {
         });
     }
 
-    private void initSwipeRefresh() {
-        swipeRefreshLayout.setColorSchemeResources(R.color.color_accent, R.color.color_frame);
-        swipeRefreshLayout.setOnRefreshListener(() -> loadArticles(true));
-    }
-
     private void navigateToArticleDetail(Article article) {
         if (article == null) {
             return;
@@ -158,9 +141,7 @@ public class CategoryFragment extends Fragment {
             articleAdapter.replaceItems(Collections.emptyList());
         }
 
-        if (!swipeRefreshLayout.isRefreshing()) {
-            progressIndicator.setVisibility(View.VISIBLE);
-        }
+        progressIndicator.setVisibility(View.VISIBLE);
 
         try {
             List<Article> pageItems = getPageItems(currentPage);
@@ -182,7 +163,6 @@ public class CategoryFragment extends Fragment {
             showLoadError();
         } finally {
             isLoading = false;
-            swipeRefreshLayout.setRefreshing(false);
             progressIndicator.setVisibility(View.GONE);
         }
     }
