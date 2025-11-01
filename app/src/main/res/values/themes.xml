@@ -6,13 +6,13 @@
         <item name="colorPrimary">@color/color_accent</item>
         <item name="colorOnPrimary">@color/text_on_accent</item>
         <item name="colorPrimaryContainer">@color/color_accent_light</item>
-        <item name="colorOnPrimaryContainer">@color/text_primary</item>
+        <item name="colorOnPrimaryContainer">@color/text_on_accent</item>
 
         <!-- Secondary palette -->
-        <item name="colorSecondary">@color/color_frame</item>
-        <item name="colorOnSecondary">@color/text_primary</item>
-        <item name="colorSecondaryContainer">@color/color_frame_soft</item>
-        <item name="colorOnSecondaryContainer">@color/text_primary</item>
+        <item name="colorSecondary">@color/color_highlight</item>
+        <item name="colorOnSecondary">@color/color_highlight_dark</item>
+        <item name="colorSecondaryContainer">@color/color_highlight_light</item>
+        <item name="colorOnSecondaryContainer">@color/color_highlight_dark</item>
 
         <!-- Surface / background -->
         <item name="colorSurface">@color/color_surface_main</item>

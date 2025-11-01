@@ -4,95 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/spacing_medium"
+    android:layout_marginBottom="@dimen/spacing_large"
     android:foreground="?attr/selectableItemBackground"
     app:cardBackgroundColor="@color/color_surface_main"
     app:cardCornerRadius="@dimen/corner_radius_card"
-    app:cardElevation="0dp"
-    app:strokeColor="@color/color_frame"
+    app:cardElevation="4dp"
+    app:strokeColor="@color/color_frame_soft"
     app:strokeWidth="1dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="@dimen/spacing_large">
 
-        <ImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="@dimen/review_avatar_size"
-            android:layout_height="@dimen/review_avatar_size"
-            android:layout_marginEnd="@dimen/spacing_medium"
-            android:background="@drawable/bg_avatar_placeholder"
-            android:scaleType="centerCrop"
-            android:src="@drawable/profile_header_photo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tvNickname"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MGG.Body"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/ratingBar"
-            app:layout_constraintStart_toEndOf="@id/imgAvatar"
-            app:layout_constraintTop_toTopOf="@id/imgAvatar"
-            tools:text="古风拥趸" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvCreatedAt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_xs"
-            android:textAppearance="@style/TextAppearance.MGG.Caption"
-            app:layout_constraintStart_toStartOf="@id/tvNickname"
-            app:layout_constraintTop_toBottomOf="@id/tvNickname"
-            tools:text="2024-01-15" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="@dimen/review_avatar_size"
+                android:layout_height="@dimen/review_avatar_size"
+                android:layout_marginEnd="@dimen/spacing_medium"
+                android:contentDescription="@string/review_user_default"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_header_photo"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlayMggCircle"
+                tools:src="@drawable/profile_header_photo" />
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="@style/Widget.AppCompat.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:isIndicator="true"
-            android:layout_marginStart="@dimen/spacing_small"
-            android:numStars="5"
-            android:stepSize="0.5"
-            app:layout_constraintBaseline_toBaselineOf="@id/tvNickname"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.MGG.Body"
+                    android:textStyle="bold"
+                    tools:text="古风拥趸" />
+
+                <TextView
+                    android:id="@+id/tvCreatedAt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_xs"
+                    android:textAppearance="@style/TextAppearance.MGG.Caption"
+                    android:textColor="@color/text_tertiary"
+                    tools:text="2024-01-15 21:10" />
+            </LinearLayout>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:stepSize="0.5" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvContent"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
+            android:lineSpacingMultiplier="1.25"
             android:textAppearance="@style/TextAppearance.MGG.Body"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgAvatar"
-            tools:text="这款米花糖松脆香甜，配上茶饮简直太搭！" />
+            tools:text="藤椒麻味很努力，晚上追剧来一包完全停不下来，就是有点上火要配茶。" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewImages"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:nestedScrollingEnabled="false"
             android:overScrollMode="never"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvContent" />
+            tools:listitem="@layout/item_review_image" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@color/color_frame" />
 
         <LinearLayout
             android:id="@+id/layoutActions"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_medium"
             android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerViewImages">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvLikeCount"
@@ -116,6 +123,6 @@
                 tools:text="12" />
         </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

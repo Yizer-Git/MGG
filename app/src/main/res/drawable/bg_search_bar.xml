@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/color_surface_main" />
-    <corners android:radius="22dp" />
+    <solid android:color="@color/color_base_soft" />
+    <corners android:radius="@dimen/corner_radius_search_bar" />
     <stroke
         android:width="1dp"
-        android:color="@color/color_frame" />
+        android:color="@color/color_highlight_light" />
+    <padding
+        android:top="2dp"
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp" />
+    <size android:height="@dimen/search_bar_height" />
 </shape>

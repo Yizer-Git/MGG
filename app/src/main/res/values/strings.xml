@@ -31,15 +31,33 @@
     <string name="greeting_evening">晚上好！</string>
     <string name="greeting_subtitle">来看看今天有哪些非遗好物</string>
     <string name="content_desc_cart">前往购物车</string>
+    <string name="content_desc_calendar">查看日程</string>
+    <string name="content_desc_notification">查看消息</string>
     <string name="content_desc_qr_scan">扫码寻找好物</string>
+    <string name="content_desc_voice_search">语音搜索</string>
     <string name="search_hint">搜索米嘎嘎特色美食</string>
     <string name="content_desc_featured_banner">精选专题横幅</string>
+    <string name="home_recommendation_subtitle">精选档期 · 线下打卡</string>
     <string name="home_recommended_exhibitions">推荐展览</string>
+    <string name="home_curated_goods">精选好物</string>
+    <string name="home_reviews_title">口碑精选</string>
     <string name="action_more">更多</string>
+    <string name="action_favorite">收藏</string>
     <string name="hot_products">热销推荐</string>
     <string name="classic_series">经典系列</string>
     <string name="trendy_series">潮流口味</string>
     <string name="heritage_culture">非遗文化</string>
+    <string name="home_culture_tag">非遗现场</string>
+    <string name="home_recommend_default_date">近期上新</string>
+    <string name="home_recommend_meta_format">%1$s · %2$s</string>
+    <string name="home_calendar_placeholder">敬请期待日程功能</string>
+    <string name="home_notification_placeholder">暂无新的通知</string>
+    <string name="home_voice_placeholder">语音搜索即将上线</string>
+    <string name="home_scan_placeholder">扫码体验正在筹备中</string>
+    <string name="home_recommendation_open_placeholder">即将前往：%1$s</string>
+    <string name="home_recommendation_bookmark_placeholder">已收藏：%1$s</string>
+    <string name="home_product_empty_placeholder">暂无商品数据</string>
+    <string name="home_item_sales_template">已售%1$d件</string>
 
     <!-- 商品 -->
     <string name="add_to_cart">加入购物车</string>
@@ -169,6 +187,9 @@
     <string name="content_desc_share">分享专题</string>
     <string name="topic_highlight_title">十月精选 · 手作展播</string>
     <string name="topic_highlight_description">汇集民间文学、传统戏剧与匠人活动，滑动选择喜爱的栏目，探索文化新灵感。</string>
+    <string name="topic_fast_news">精选快讯</string>
+    <string name="topic_view_more">查看更多</string>
+    <string name="topic_fast_news_placeholder">敬请期待更多精选快讯。</string>
     <string name="content_desc_filter">探索筛选</string>
     <string name="explore_title">探索民俗</string>
     <string name="explore_subtitle">发掘故事、匠人、节庆与更多灵感</string>
@@ -177,6 +198,7 @@
     <string name="explore_tab_handmade">手作</string>
     <string name="explore_tab_festival">节庆</string>
     <string name="explore_tab_inheritor">传承人</string>
+    <string name="explore_reviews_title">社区口碑</string>
     <string name="explore_empty">还没有内容，欢迎分享你的民俗灵感</string>
 
     <!-- 社区评论 -->

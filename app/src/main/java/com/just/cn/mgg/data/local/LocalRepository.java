@@ -17,10 +17,12 @@ import com.just.cn.mgg.data.local.entity.ReviewCommentEntity;
 import com.just.cn.mgg.data.local.entity.ReviewEntity;
 import com.just.cn.mgg.data.local.entity.ReviewLikeEntity;
 import com.just.cn.mgg.data.local.entity.UserEntity;
+import com.just.cn.mgg.R;
 import com.just.cn.mgg.data.model.Address;
 import com.just.cn.mgg.data.model.Article;
 import com.just.cn.mgg.data.model.CartItem;
 import com.just.cn.mgg.data.model.Order;
+import com.just.cn.mgg.data.model.HomeRecommendation;
 import com.just.cn.mgg.data.model.OrderItem;
 import com.just.cn.mgg.data.model.Product;
 import com.just.cn.mgg.data.model.Review;
@@ -151,6 +153,29 @@ public class LocalRepository {
         for (ProductEntity entity : entities) {
             result.add(mapProduct(entity));
         }
+        return result;
+    }
+
+    public List<HomeRecommendation> getHomeRecommendations() {
+        List<HomeRecommendation> result = new ArrayList<>();
+        result.add(new HomeRecommendation(
+                "嘉州酿坊夜游会",
+                "限时展演",
+                "3.12 - 4.02 · 乐山市非遗馆",
+                R.drawable.home_banner_photo_1
+        ));
+        result.add(new HomeRecommendation(
+                "凤凰社火巡游",
+                "传统节庆",
+                "4.18 - 4.21 · 中区老街",
+                R.drawable.home_banner_photo_2
+        ));
+        result.add(new HomeRecommendation(
+                "匠心扎染工作坊",
+                "手作体验",
+                "每周六 · 米嘎嘎文化站",
+                R.drawable.home_banner_photo_3
+        ));
         return result;
     }
 

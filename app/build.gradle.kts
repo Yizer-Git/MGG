@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
@@ -48,10 +49,13 @@ android {
 
 dependencies {
     // 基础库
+    implementation(libs.core)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
+    implementation(libs.fragment)
     implementation(libs.constraintlayout)
+    implementation(libs.lifecycle.runtime)
     
     // 网络
     implementation(libs.retrofit)
@@ -75,6 +79,14 @@ dependencies {
     // UI组件
     implementation(libs.swiperefreshlayout)
     implementation(libs.viewpager2)
+
+    // Jetpack Navigation
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    
+    // Hilt
+    implementation(libs.hilt.android)
+    annotationProcessor(libs.hilt.compiler)
     
     // 测试
     testImplementation(libs.junit)

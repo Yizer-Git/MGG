@@ -11,13 +11,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.just.cn.mgg.ui.auth.LoginActivity;
 import com.just.cn.mgg.ui.main.category.CategoryFragment;
 import com.just.cn.mgg.ui.main.community.CommunityFragment;
-import com.just.cn.mgg.ui.main.home.HomeFragment;
+import com.just.cn.mgg.ui.home.HomeFragment;
 import com.just.cn.mgg.ui.main.profile.ProfileFragment;
 import com.just.cn.mgg.utils.SPUtils;
+import dagger.hilt.android.AndroidEntryPoint;
 
 /**
  * 主页面 - 带底部导航
  */
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;

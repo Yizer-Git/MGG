@@ -181,53 +181,6 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Highlight Banner -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/bannerFeatured"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/home_banner_height"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/corner_radius_card_large"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.viewpager2.widget.ViewPager2
-                        android:id="@+id/vpHomeBanner"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
-
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tabHomeBanner"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/spacing_medium"
-                        android:layout_marginBottom="@dimen/spacing_medium"
-                        android:background="@drawable/bg_banner_indicator_panel"
-                        android:paddingStart="@dimen/spacing_small"
-                        android:paddingEnd="@dimen/spacing_small"
-                        android:paddingTop="@dimen/spacing_xs"
-                        android:paddingBottom="@dimen/spacing_xs"
-                        android:alpha="0.9"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:tabGravity="center"
-                        app:tabIndicatorFullWidth="false"
-                        app:tabIndicatorGravity="center"
-                        app:tabIndicatorHeight="0dp"
-                        app:tabSelectedTextColor="@color/color_accent"
-                        app:tabTextColor="@color/text_secondary" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-
             <!-- Section Header -->
             <LinearLayout
                 android:id="@+id/layoutSectionHeader"
@@ -261,6 +214,26 @@
                 android:nestedScrollingEnabled="false"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_product" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressHome"
+                style="@style/Widget.MaterialComponents.CircularProgressIndicator.ExtraSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_large"
+                android:gravity="center"
+                android:text="@string/home_product_empty_placeholder"
+                android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+                android:textColor="@color/text_secondary"
+                android:visibility="gone" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
