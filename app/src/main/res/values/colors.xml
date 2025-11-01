@@ -43,6 +43,8 @@
     <color name="text_on_image">#FFFFFFFF</color>
     <color name="text_on_image_secondary">#CCFFFFFF</color>
     <color name="text_link">@color/color_brand_primary</color>
+    <color name="color_heritage_card">@color/color_surface_subtle</color>
+    <color name="color_knowledge_chip">@color/color_accent_light</color>
 
     <!-- Utility -->
     <color name="overlay_mask">#80D2B68C</color>

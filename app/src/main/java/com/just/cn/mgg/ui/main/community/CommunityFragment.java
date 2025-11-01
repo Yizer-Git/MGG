@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -27,7 +26,6 @@ import com.just.cn.mgg.data.local.LocalRepository;
 import com.just.cn.mgg.data.model.HomeRecommendation;
 import com.just.cn.mgg.data.model.Review;
 import com.just.cn.mgg.ui.review.ReviewAdapter;
-import com.just.cn.mgg.ui.search.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -129,29 +127,6 @@ public class CommunityFragment extends Fragment {
         chipGroup = root.findViewById(R.id.chipGroupExploreFilters);
         bannerPager = root.findViewById(R.id.vpCommunityBanner);
         bannerIndicator = root.findViewById(R.id.layoutCommunityBannerIndicator);
-
-        EditText searchInput = root.findViewById(R.id.etExploreSearch);
-        View searchBar = root.findViewById(R.id.layoutExploreSearchBar);
-        View btnVoice = root.findViewById(R.id.btnExploreVoice);
-        View btnScan = root.findViewById(R.id.btnExploreScan);
-
-        View.OnClickListener openSearch = v -> SearchActivity.startForCommunity(requireContext());
-        if (searchInput != null) {
-            searchInput.setFocusable(false);
-            searchInput.setFocusableInTouchMode(false);
-            searchInput.setOnClickListener(openSearch);
-        }
-        if (searchBar != null) {
-            searchBar.setOnClickListener(openSearch);
-        }
-        if (btnVoice != null) {
-            btnVoice.setOnClickListener(v ->
-                    Toast.makeText(requireContext(), getString(R.string.home_voice_placeholder), Toast.LENGTH_SHORT).show());
-        }
-        if (btnScan != null) {
-            btnScan.setOnClickListener(v ->
-                    Toast.makeText(requireContext(), getString(R.string.home_scan_placeholder), Toast.LENGTH_SHORT).show());
-        }
 
         tagIdMap.put(CommunityTag.RECOMMEND, R.id.chipRecommend);
         tagIdMap.put(CommunityTag.HANDMADE, R.id.chipHandmade);

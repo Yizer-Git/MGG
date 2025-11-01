@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.just.cn.mgg.MainActivity;
 import com.just.cn.mgg.R;
@@ -21,6 +20,7 @@ import com.just.cn.mgg.ui.home.adapter.HomeProductAdapter;
 import com.just.cn.mgg.ui.home.model.HomeUiState;
 import com.just.cn.mgg.ui.main.cart.CartActivity;
 import com.just.cn.mgg.ui.product.ProductDetailActivity;
+import com.just.cn.mgg.ui.search.SearchActivity;
 import com.just.cn.mgg.utils.ToastUtils;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -62,8 +62,12 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        binding.rvProducts.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        StaggeredGridLayoutManager layoutManager =
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS);
+        binding.rvProducts.setLayoutManager(layoutManager);
         binding.rvProducts.setAdapter(productAdapter);
+        binding.rvProducts.setItemAnimator(null);
     }
 
     private void setupClicks() {
@@ -75,8 +79,21 @@ public class HomeFragment extends Fragment {
                 }
             }
         };
-        binding.cultureCard.setOnClickListener(openCulture);
-        binding.btnCultureExplore.setOnClickListener(openCulture);
+        binding.cardHeritageDaily.setOnClickListener(openCulture);
+        binding.tvHeritageMore.setOnClickListener(openCulture);
+
+        View.OnClickListener openSearch = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getContext() != null) {
+                    SearchActivity.startForProducts(requireContext());
+                }
+            }
+        };
+        binding.layoutSearch.setOnClickListener(openSearch);
+        binding.etSearch.setFocusable(false);
+        binding.etSearch.setFocusableInTouchMode(false);
+        binding.etSearch.setOnClickListener(openSearch);
 
         binding.btnCart.setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), CartActivity.class)));

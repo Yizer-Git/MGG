@@ -108,80 +108,177 @@
                     android:tint="@color/color_accent" />
             </LinearLayout>
 
-            <!-- Hero Banner -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cultureCard"
+            <!-- Heritage Knowledge -->
+            <LinearLayout
+                android:id="@+id/layoutHeritageKnowledge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_xxl"
                 android:layout_marginBottom="@dimen/spacing_large"
-                app:cardBackgroundColor="@color/color_surface_main"
-                app:cardCornerRadius="@dimen/corner_radius_card"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/color_frame"
-                app:strokeWidth="1dp">
+                android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/tvKnowledgeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home_knowledge_title"
+                    android:textAppearance="@style/TextAppearance.MGG.Headline3"
+                    android:textColor="@color/color_brand_primary" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/chipKnowledgeTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    app:chipSpacingHorizontal="@dimen/spacing_medium"
+                    app:chipSpacingVertical="@dimen/spacing_small"
+                    app:singleLine="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipHistory"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/home_knowledge_chip_history"
+                        android:textColor="@color/color_accent_dark"
+                        app:chipBackgroundColor="@color/color_knowledge_chip" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipMaterial"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/home_knowledge_chip_material"
+                        android:textColor="@color/color_accent_dark"
+                        app:chipBackgroundColor="@color/color_knowledge_chip" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCraft"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/home_knowledge_chip_skill"
+                        android:textColor="@color/color_accent_dark"
+                        app:chipBackgroundColor="@color/color_knowledge_chip" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipDesign"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/home_knowledge_chip_style"
+                        android:textColor="@color/color_accent_dark"
+                        app:chipBackgroundColor="@color/color_knowledge_chip" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTechnique"
+                        style="@style/Widget.Material3.Chip.Assist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:text="@string/home_knowledge_chip_craft"
+                        android:textColor="@color/color_accent_dark"
+                        app:chipBackgroundColor="@color/color_knowledge_chip" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    android:id="@+id/tvKnowledgeDailyLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:text="@string/home_knowledge_daily_title"
+                    android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+                    android:textColor="@color/text_primary" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardHeritageDaily"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/spacing_xl">
+                    android:layout_marginTop="@dimen/spacing_medium"
+                    app:cardBackgroundColor="@color/color_heritage_card"
+                    app:cardCornerRadius="@dimen/corner_radius_card_large"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/ivCulture"
-                        android:layout_width="@dimen/feature_card_image_size"
-                        android:layout_height="@dimen/feature_card_image_size"
-                        android:contentDescription="@string/culture_section_title"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/home_banner_photo_1"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/spacing_xl">
 
-                    <TextView
-                        android:id="@+id/tvCultureHeadline"
+                        <TextView
+                            android:id="@+id/tvHeritageTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_tag_chip"
+                            android:paddingStart="@dimen/spacing_small"
+                            android:paddingTop="@dimen/spacing_xs"
+                            android:paddingEnd="@dimen/spacing_small"
+                            android:paddingBottom="@dimen/spacing_xs"
+                        android:text="@string/home_knowledge_card_tag"
+                        android:textAppearance="@style/TextAppearance.MGG.Caption"
+                        android:textColor="@color/color_accent_dark"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvHeritageTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_large"
-                        android:text="@string/home_culture_title"
-                        android:textAppearance="@style/TextAppearance.MGG.Headline2"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/ivCulture"
-                        app:layout_constraintTop_toTopOf="@id/ivCulture" />
-
-                    <TextView
-                        android:id="@+id/tvCultureDescription"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_large"
-                        android:layout_marginTop="@dimen/spacing_small"
-                        android:text="@string/home_culture_description"
-                        android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/ivCulture"
-                        app:layout_constraintTop_toBottomOf="@id/tvCultureHeadline" />
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnCultureExplore"
-                        style="@style/Widget.MGG.Button.Primary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/button_height"
-                        android:layout_marginStart="@dimen/spacing_large"
                         android:layout_marginTop="@dimen/spacing_large"
-                        android:text="@string/home_culture_action"
-                        app:icon="@drawable/ic_chinese_knot"
-                        app:iconGravity="textStart"
-                        app:iconPadding="@dimen/spacing_small"
-                        app:iconTint="@color/text_on_accent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/ivCulture"
-                        app:layout_constraintTop_toBottomOf="@id/tvCultureDescription" />
+                        android:text="@string/home_knowledge_card_title"
+                        android:textAppearance="@style/TextAppearance.MGG.Headline2"
+                        android:textColor="@color/color_brand_primary"
+                            app:layout_constraintEnd_toStartOf="@id/ivHeritageImage"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvHeritageTag" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/tvHeritageDescription"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:lineSpacingMultiplier="1.3"
+                        android:text="@string/home_knowledge_card_description"
+                        android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+                        android:textColor="@color/text_primary"
+                            app:layout_constraintEnd_toStartOf="@id/ivHeritageImage"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvHeritageTitle" />
 
-            </com.google.android.material.card.MaterialCardView>
+                        <TextView
+                            android:id="@+id/tvHeritageMore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_large"
+                        android:text="@string/home_knowledge_card_cta"
+                        android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+                        android:textColor="@color/color_brand_primary"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvHeritageDescription" />
 
-            <!-- Section Header -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivHeritageImage"
+                            android:layout_width="120dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/spacing_large"
+                            android:contentDescription="@string/home_knowledge_card_image_desc"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/home_banner_photo_4"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+<!-- Section Header -->
             <LinearLayout
                 android:id="@+id/layoutSectionHeader"
                 android:layout_width="match_parent"

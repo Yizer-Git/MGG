@@ -112,71 +112,6 @@
                         app:chipStrokeWidth="1dp" />
                 </com.google.android.material.chip.ChipGroup>
 
-                <!-- Search Bar -->
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cardExploreSearch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_small"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/corner_radius_search_bar"
-                    app:cardElevation="@dimen/search_card_elevation"
-                    app:cardUseCompatPadding="true"
-                    app:rippleColor="@color/color_accent_transparent_10"
-                    app:strokeColor="@color/color_outline_neutral"
-                    app:strokeWidth="0dp">
-
-                    <LinearLayout
-                        android:id="@+id/layoutExploreSearchBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/search_bar_height"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="@dimen/spacing_large"
-                        android:paddingEnd="@dimen/spacing_large">
-
-                        <ImageView
-                            android:layout_width="@dimen/icon_size_medium"
-                            android:layout_height="@dimen/icon_size_medium"
-                            android:contentDescription="@string/search_hint"
-                            android:src="@drawable/ic_search_outline"
-                            android:tint="@color/text_secondary" />
-
-                        <EditText
-                            android:id="@+id/etExploreSearch"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@android:color/transparent"
-                            android:hint="@string/explore_search_hint"
-                            android:imeOptions="actionSearch"
-                            android:inputType="text"
-                            android:paddingStart="@dimen/spacing_medium"
-                            android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
-                            android:textColorHint="@color/text_hint" />
-
-                        <ImageButton
-                            android:id="@+id/btnExploreVoice"
-                            style="@style/Widget.Material3.Button.Icon"
-                            android:layout_width="@dimen/min_touch_target"
-                            android:layout_height="@dimen/min_touch_target"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/home_voice_placeholder"
-                            android:src="@drawable/ic_mic_outline"
-                            android:tint="@color/text_secondary" />
-
-                        <ImageButton
-                            android:id="@+id/btnExploreScan"
-                            style="@style/Widget.Material3.Button.Icon"
-                            android:layout_width="@dimen/min_touch_target"
-                            android:layout_height="@dimen/min_touch_target"
-                            android:background="@android:color/transparent"
-                            android:contentDescription="@string/home_scan_placeholder"
-                            android:src="@drawable/ic_scan_outline"
-                            android:tint="@color/text_secondary" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
                 <!-- Banner Carousel -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/cardCommunityBanner"
@@ -186,6 +121,8 @@
                     app:cardBackgroundColor="@color/color_surface_main"
                     app:cardCornerRadius="@dimen/corner_radius_card_large"
                     app:cardElevation="0dp"
+                    app:cardPreventCornerOverlap="false"
+                    app:cardUseCompatPadding="false"
                     app:strokeColor="@color/color_outline_neutral"
                     app:strokeWidth="1dp">
 

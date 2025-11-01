@@ -8,6 +8,7 @@
         android:id="@+id/ivBannerImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
         android:contentDescription="@string/content_desc_featured_banner"
         android:scaleType="centerCrop"
         tools:src="@drawable/home_banner_photo_1" />
