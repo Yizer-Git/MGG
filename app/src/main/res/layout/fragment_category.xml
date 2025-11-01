@@ -7,272 +7,55 @@
     android:background="@color/color_base"
     tools:context=".ui.main.category.CategoryFragment">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollCategory"
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:minHeight="@dimen/toolbar_height"
+        android:paddingStart="@dimen/spacing_home_horizontal"
+        android:paddingEnd="@dimen/spacing_home_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:title="@string/culture_section_title"
+        app:titleCentered="true"
+        app:titleTextAppearance="@style/TextAppearance.MGG.Headline3"
+        tools:menu="@menu/menu_category_toolbar"
+        tools:navigationIcon="@drawable/ic_nav_back_culture" />
+
+    <View
+        android:id="@+id/toolbarDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/color_outline_neutral"
+        app:layout_constraintTop_toBottomOf="@id/toolbarCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabCategory"
+        style="@style/Widget.MGG.TabLayout.Category"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/toolbarDivider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tabIndicatorFullWidth="false"
+        tools:tabIndicatorColor="@color/color_brand_primary"
+        tools:tabMode="fixed"
+        tools:tabSelectedTextColor="@color/text_primary"
+        tools:tabText="推荐" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerCategory"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
-        android:overScrollMode="never"
-        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/color_base"
+        app:layout_constraintTop_toBottomOf="@id/tabCategory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="16dp">
-
-            <LinearLayout
-                android:id="@+id/layoutTopicHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="16dp"
-                android:paddingTop="12dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="12dp">
-
-                <ImageButton
-                    android:id="@+id/btnTopicBack"
-                    style="@style/Widget.Material3.Button.Icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_surface_card"
-                    android:contentDescription="@string/content_desc_back"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_nav_back_culture"
-                    android:tint="@color/text_primary" />
-
-                <TextView
-                    android:id="@+id/tvCultureTitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_weight="1"
-                    android:text="@string/culture_section_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-
-                <ImageButton
-                    android:id="@+id/btnTopicShare"
-                    style="@style/Widget.Material3.Button.Icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_surface_card"
-                    android:contentDescription="@string/content_desc_share"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_lantern"
-                    android:tint="@color/text_primary" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvCultureSubtitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/culture_section_subtitle"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp" />
-
-            <HorizontalScrollView
-                android:id="@+id/topicTabsContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:overScrollMode="never"
-                android:scrollbars="none">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/chipGroupCategories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingEnd="8dp"
-                    app:chipSpacingHorizontal="12dp"
-                    app:selectionRequired="false"
-                    app:singleSelection="true">
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipAll"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:tag=""
-                        android:text="@string/article_filter_all"
-                        android:textColor="@color/chip_text_selector"
-                        android:textSize="14sp"
-                        app:checkedIconVisible="false"
-                        app:chipBackgroundColor="@color/chip_background_selector"
-                        app:chipStrokeColor="@color/chip_stroke_selector"
-                        app:chipStrokeWidth="1dp"
-                        app:rippleColor="@color/color_accent_transparent_10" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipBrandStory"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:tag="品牌故事"
-                        android:text="@string/article_filter_brand_story"
-                        android:textColor="@color/chip_text_selector"
-                        android:textSize="14sp"
-                        app:checkedIconVisible="false"
-                        app:chipBackgroundColor="@color/chip_background_selector"
-                        app:chipStrokeColor="@color/chip_stroke_selector"
-                        app:chipStrokeWidth="1dp"
-                        app:rippleColor="@color/color_accent_transparent_10" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipCraft"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:tag="非遗技艺"
-                        android:text="@string/article_filter_craft"
-                        android:textColor="@color/chip_text_selector"
-                        android:textSize="14sp"
-                        app:checkedIconVisible="false"
-                        app:chipBackgroundColor="@color/chip_background_selector"
-                        app:chipStrokeColor="@color/chip_stroke_selector"
-                        app:chipStrokeWidth="1dp"
-                        app:rippleColor="@color/color_accent_transparent_10" />
-
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/chipNationalTrend"
-                        style="@style/Widget.Material3.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:tag="国潮资讯"
-                        android:text="@string/article_filter_trend"
-                        android:textColor="@color/chip_text_selector"
-                        android:textSize="14sp"
-                        app:checkedIconVisible="false"
-                        app:chipBackgroundColor="@color/chip_background_selector"
-                        app:chipStrokeColor="@color/chip_stroke_selector"
-                        app:chipStrokeWidth="1dp"
-                        app:rippleColor="@color/color_accent_transparent_10" />
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/topicBanner"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="20dp"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="0dp"
-                app:strokeColor="@color/color_frame"
-                app:strokeWidth="1dp">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/content_desc_topic_banner"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/category_banner_photo" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/topicHighlightCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="20dp"
-                app:cardBackgroundColor="@color/color_surface_main"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/color_frame"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/topic_highlight_title"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/ic_heritage_inheritor"
-                        android:tint="@color/color_accent"
-                        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full" />
-
-                    <TextView
-                        android:id="@+id/tvHighlightTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/topic_highlight_title"
-                        android:textColor="@color/text_primary"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvHighlightDescription"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="@string/topic_highlight_description"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="13sp" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewArticles"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_surface_card"
-                    android:clipToPadding="false"
-                    android:nestedScrollingEnabled="false"
-                    android:paddingStart="16dp"
-                    android:paddingTop="16dp"
-                    android:paddingEnd="16dp"
-                    android:paddingBottom="80dp"
-                    tools:listitem="@layout/item_article" />
-
-                <TextView
-                    android:id="@+id/tvEmptyArticles"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:padding="16dp"
-                    android:text="@string/article_empty"
-                    android:textColor="@color/text_secondary"
-                    android:visibility="gone" />
-
-                <com.google.android.material.progressindicator.CircularProgressIndicator
-                    android:id="@+id/progressBarArticles"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
-                    app:indicatorColor="@color/color_accent"
-                    app:indicatorSize="48dp" />
-            </FrameLayout>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

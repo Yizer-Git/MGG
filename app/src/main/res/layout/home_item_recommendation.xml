@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/home_recommend_card_width"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/spacing_large"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/corner_radius_card"
+    app:cardElevation="0dp"
+    app:rippleColor="@color/color_accent_transparent_10"
+    app:strokeColor="@color/color_outline_neutral"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivRecommendationCover"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/home_recommend_image_height"
+            android:contentDescription="@string/home_recommended_exhibitions"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedTop"
+            tools:src="@drawable/home_banner_photo_1" />
+
+        <LinearLayout
+            android:id="@+id/layoutRecommendationInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/info_card_padding"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/info_card_padding"
+            android:layout_marginBottom="@dimen/info_card_padding"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRecommendationCover">
+
+            <TextView
+                android:id="@+id/tvRecommendationTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_tag_chip"
+                android:paddingStart="@dimen/spacing_small"
+                android:paddingTop="4dp"
+                android:paddingEnd="@dimen/spacing_small"
+                android:paddingBottom="4dp"
+                android:textAppearance="@style/TextAppearance.MGG.Overline"
+                android:textColor="@color/color_brand_primary"
+                tools:text="限时展演" />
+
+            <TextView
+                android:id="@+id/tvRecommendationTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_large"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MGG.Headline3"
+                tools:text="嘉州春味：非遗手作体验日" />
+
+            <TextView
+                android:id="@+id/tvRecommendationMeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+                android:textColor="@color/text_secondary"
+                tools:text="3.21 - 4.03 · 乐山市非遗馆" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnRecommendationBookmark"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="@dimen/icon_size_large"
+            android:layout_height="@dimen/icon_size_large"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginEnd="@dimen/info_card_padding"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/action_favorite"
+            android:src="@drawable/ic_favorite_border"
+            android:tint="@color/text_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRecommendationCover" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

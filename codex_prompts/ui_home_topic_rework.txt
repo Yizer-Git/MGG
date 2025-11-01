@@ -1,0 +1,42 @@
+目标：按以下 Design Cues 改造 Android UI（仅限 app/src 下），自动修改并保存文件；遵循既有 package 结构与资源命名；必要时新增/调整资源与样式；保持编译通过。
+
+【Design Cues】
+- 顶部问候 + 搜索组合：扁平白底，左右留白更宽，放大镜图标 + 语音/扫码辅助图标；圆角更大，弱化阴影。
+- 主页核心：大幅氛围海报卡片（MaterialCardView），卡片底部白色信息面板显示项目标题/副标题/文化标签。
+- 推荐展览：横向滑动卡片（RecyclerView HORIZONTAL + SnapHelper），卡片含图片、名称、日期/地点、收藏按钮。
+- 专题页顶部：Tab/标签 + 大图 banner；正文以白色信息卡分块，配“查看更多”按钮。
+- 统一圆角（顶部 24dp，卡片 18dp）、描边 1dp #E5E5E5、背景色：奶油白主体、纯白卡片；对齐 UI_BEAUTIFICATION_SUMMARY.md 的字体/行距/描边策略。
+
+【具体落地】
+Home Screen
+- 文件：app/src/main/res/layout/fragment_home.xml、类：com.just.cn.mgg.ui.main.home.HomeFragment
+- 重组顶部：左侧问候+日期/天气；右侧快捷图标（日历/消息）。
+- 重做搜索条：更大圆角、弱阴影、替换图标，加入语音/扫码按钮。
+- “文化推荐”改为全幅 MaterialCardView + 大图，标题/简介放入底部白色信息面板。
+- 精简/整合现有 ViewPager2 banner 与文化卡片，决定保留轮播或单页+指示条（任选一种实现但样式统一）。
+- 新增“推荐展览”横向 RecyclerView：HomeRecommendationAdapter + 新卡片布局（layout/home_item_recommendation.xml），LinearLayoutManager(HORIZONTAL)、PagerSnapHelper、统一间距 ItemDecoration；数据复用 LocalRepository#getHotProducts 前若干条。
+- 保留底部导航逻辑，仅在 HomeFragment 中初始化/绑定适配器与滚动。
+
+Topic Screen
+- 文件：app/src/main/res/layout/fragment_category.xml、类：com.just.cn.mgg.ui.main.category.CategoryFragment
+- 用 TabLayout + ViewPager2 联动替换 HorizontalScrollView + ChipGroup；下划线指示，禁用背景描边。
+- 顶部栏：左返回、居中标题、右分享，背景简洁。
+- 重绘专题 Banner：全幅海报图 + 圆角 + 轻描边；支持从仓库数据动态切换。
+- 增加“精选快讯”信息卡（白底卡片 + “查看更多”按钮），准备相应假数据字段。
+- 文章列表保留纵向 RecyclerView，卡片阴影减弱、圆角统一、收藏按钮位置微调。
+
+Shared Styling & Assets
+- 检查 res/color、res/dimen、res/drawable；新增/替换图标（搜索、日历、收藏、菜单）为简洁描边版。
+- 在 styles.xml 补齐缺失的 TextAppearance（Overline/Body 等）、TabLayout/搜索条样式；统一 8pt 间距体系。
+- 维持暗色/无数据状态的基本可用性（必要时给占位图/空态文案）。
+- 适度重命名/删除过时资源与布局，保证编译与运行。
+
+约束
+- 仅改动 app/src；不动 build 配置与三方依赖。
+- 如果发生大规模删除/重命名，请直接执行，无需人工确认。
+- 生成或修改的文件：保证可编译（gradle）、命名规范一致、资源引用有效。
+
+最终交付
+- 已修改文件的 diff；
+- 若新增文件，放在合理的 package/layout 路径；
+- 关键类：HomeFragment、CategoryFragment、HomeRecommendationAdapter、对应的 ViewHolder 与 XML。

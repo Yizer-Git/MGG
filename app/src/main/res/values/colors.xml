@@ -5,34 +5,50 @@
     <color name="white">#FFFFFFFF</color>
 
     <!-- Background palette -->
-    <color name="color_base">#FFFFFF</color>
-    <color name="color_base_soft">#FAFAFA</color>
+    <color name="color_base">#FFFFFFFF</color>
+    <color name="color_base_soft">#FFF7F1</color>
+    <color name="color_surface_main">#FFFFFFFF</color>
+    <color name="color_surface_subtle">#FFFAF4</color>
+    <color name="color_surface_elevated">#FFFFFFFF</color>
 
     <!-- Borders & dividers -->
-    <color name="color_frame">#E0E0E0</color>
-    <color name="color_frame_soft">#F5F5F5</color>
+    <color name="color_frame">#E6DDD0</color>
+    <color name="color_frame_soft">#F1E7DA</color>
+    <color name="color_outline_neutral">#FFE5E5E5</color>
+    <color name="divider">@color/color_frame</color>
 
     <!-- Accent palette -->
-    <color name="color_accent">#BAA789</color>
-    <color name="color_accent_dark">#9A8A6F</color>
-    <color name="color_accent_light">#D4C8B3</color>
-    <color name="color_accent_transparent_10">#1ABAA789</color>
-    <color name="color_accent_transparent_20">#33BAA789</color>
+    <color name="color_accent">#D2B68C</color>
+    <color name="color_accent_dark">#B48E5C</color>
+    <color name="color_accent_light">#F2E2C7</color>
+    <color name="color_accent_transparent_10">#1AD2B68C</color>
+    <color name="color_accent_transparent_20">#33D2B68C</color>
+    <color name="color_accent_transparent_30">#4DD2B68C</color>
 
-    <!-- Surface shades -->
-    <color name="color_surface_main">#FFFFFF</color>
-    <color name="color_surface_elevated">#FAFAFA</color>
+    <!-- Highlight palette -->
+    <color name="color_highlight">#D2B68C</color>
+    <color name="color_highlight_dark">#B48E5C</color>
+    <color name="color_highlight_light">#F2E2C7</color>
 
-    <!-- Typography colors -->
-    <color name="text_primary">#212121</color>
-    <color name="text_secondary">#757575</color>
-    <color name="text_tertiary">#9E9E9E</color>
-    <color name="text_hint">#BDBDBD</color>
-    <color name="text_on_accent">#FFFFFF</color>
+    <!-- Brand palette -->
+    <color name="color_brand_primary">#A4393C</color>
+    <color name="color_brand_primary_light">#F8E6E4</color>
+    <!-- Typography -->
+    <color name="text_primary">@color/black</color>
+    <color name="text_secondary">@color/black</color>
+    <color name="text_tertiary">@color/black</color>
+    <color name="text_hint">@color/black</color>
+    <color name="color_nav_inactive">#FFB0B0B0</color>
+    <color name="text_on_accent">#FFFCF9</color>
+    <color name="text_on_image">#FFFFFFFF</color>
+    <color name="text_on_image_secondary">#CCFFFFFF</color>
+    <color name="text_link">@color/color_brand_primary</color>
+    <color name="color_heritage_card">@color/color_surface_subtle</color>
+    <color name="color_knowledge_chip">@color/color_accent_light</color>
 
     <!-- Utility -->
-    <color name="divider">#E0E0E0</color>
-    <color name="overlay_mask">#80000000</color>
+    <color name="overlay_mask">#80D2B68C</color>
+    <color name="shadow_soft">#14D2B68C</color>
 
     <!-- Status colors -->
     <color name="success">#66BB6A</color>

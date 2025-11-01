@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBannerImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/content_desc_featured_banner"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/home_banner_photo_1" />
+
+    <LinearLayout
+        android:id="@+id/layoutBannerInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_banner_scrim"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/spacing_large"
+        android:paddingTop="@dimen/spacing_large"
+        android:paddingEnd="@dimen/spacing_large"
+        android:paddingBottom="@dimen/spacing_large">
+
+        <TextView
+            android:id="@+id/tvBannerTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_tag_chip"
+            android:paddingStart="@dimen/spacing_small"
+            android:paddingTop="4dp"
+            android:paddingEnd="@dimen/spacing_small"
+            android:paddingBottom="4dp"
+            android:textAppearance="@style/TextAppearance.MGG.Overline"
+            android:textColor="@color/color_brand_primary"
+            tools:text="节庆现场" />
+
+        <TextView
+            android:id="@+id/tvBannerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:lineSpacingMultiplier="1.1"
+            android:textAppearance="@style/TextAppearance.MGG.Headline2"
+            android:textColor="@color/text_on_image"
+            tools:text="凤凰社火巡游夜" />
+
+        <TextView
+            android:id="@+id/tvBannerSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textAppearance="@style/TextAppearance.MGG.BodySecondary"
+            android:textColor="@color/text_on_image_secondary"
+            tools:text="3.21-4.03 · 乐山非遗馆" />
+    </LinearLayout>
+
+</FrameLayout>

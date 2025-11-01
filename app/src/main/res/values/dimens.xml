@@ -12,16 +12,17 @@
 
     <!-- ========== Semantic spacing ========== -->
     <dimen name="spacing_page_horizontal">16dp</dimen>
-    <dimen name="spacing_page_vertical">20dp</dimen>
+    <dimen name="spacing_page_vertical">24dp</dimen>
     <dimen name="spacing_module_vertical">24dp</dimen>
     <dimen name="spacing_component_inner">12dp</dimen>
     <dimen name="spacing_grid_item">6dp</dimen>
 
     <!-- ========== Corner radii ========== -->
     <dimen name="corner_radius_button">12dp</dimen>
-    <dimen name="corner_radius_card">16dp</dimen>
-    <dimen name="corner_radius_card_large">20dp</dimen>
-    <dimen name="corner_radius_search_bar">22dp</dimen>
+    <dimen name="corner_radius_card">18dp</dimen>
+    <dimen name="corner_radius_card_large">18dp</dimen>
+    <dimen name="corner_radius_card_xl">24dp</dimen>
+    <dimen name="corner_radius_search_bar">32dp</dimen>
     <dimen name="corner_radius_chip">16dp</dimen>
 
     <!-- ========== Component dimensions ========== -->
@@ -29,7 +30,8 @@
     <dimen name="cart_quantity_button_size">36dp</dimen>
     <dimen name="button_height">48dp</dimen>
     <dimen name="toolbar_height">56dp</dimen>
-    <dimen name="search_bar_height">44dp</dimen>
+    <dimen name="search_bar_height">52dp</dimen>
+    <dimen name="search_card_elevation">6dp</dimen>
     <dimen name="chip_height">32dp</dimen>
     <dimen name="bottom_bar_min_height">72dp</dimen>
     <dimen name="article_item_min_height">120dp</dimen>
@@ -40,7 +42,13 @@
     <dimen name="order_item_image_size">72dp</dimen>
     <dimen name="article_cover_size">112dp</dimen>
     <dimen name="feature_card_image_size">80dp</dimen>
-    <dimen name="home_banner_height">200dp</dimen>
+    <dimen name="home_banner_height">220dp</dimen>
+    <dimen name="banner_side_peek">20dp</dimen>
+    <dimen name="banner_indicator_size">8dp</dimen>
+    <dimen name="banner_indicator_spacing">6dp</dimen>
+    <dimen name="home_recommend_card_width">240dp</dimen>
+    <dimen name="home_recommend_image_height">160dp</dimen>
+    <dimen name="home_section_spacing">24dp</dimen>
     <dimen name="icon_size_small">20dp</dimen>
     <dimen name="icon_size_medium">24dp</dimen>
     <dimen name="icon_size_large">30dp</dimen>
@@ -53,5 +61,16 @@
     <dimen name="text_size_h3">16sp</dimen>
     <dimen name="text_size_body">14sp</dimen>
     <dimen name="text_size_caption">12sp</dimen>
-    <dimen name="text_size_price">20sp</dimen>
+    <dimen name="text_size_price">22sp</dimen>
+    <dimen name="text_size_overline">11sp</dimen>
+
+    <!-- Brand typography -->
+    <dimen name="text_size_brand_title">28sp</dimen>
+    <dimen name="text_size_brand_subtitle">13sp</dimen>
+
+    <!-- Tab -->
+    <dimen name="tab_indicator_height">3dp</dimen>
+    <dimen name="spacing_home_horizontal">24dp</dimen>
+    <dimen name="category_banner_height">220dp</dimen>
+    <dimen name="info_card_padding">20dp</dimen>
 </resources>
